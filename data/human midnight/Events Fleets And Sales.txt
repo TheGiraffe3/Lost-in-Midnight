@@ -12,6 +12,7 @@
 
 
 mission "Midnight Pirate Planet Outfitters"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -51,6 +52,7 @@ event "midnight pirate planet outfitters"
 
 
 mission "Midnight Add Kludge Blasters"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -139,6 +141,7 @@ event "midnight add kludge blasters"
 
 
 mission "Midnight Add More Kludge Variants"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -159,6 +162,7 @@ event "midnight add more kludge variants"
 
 
 mission "Midnight Blaster War Update"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -192,6 +196,7 @@ event "midnight blaster war update"
 
 
 mission "Midnight Scrounger Patch"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -216,6 +221,7 @@ event "midnight scrounger patch"
 		add "Scrapper"
 
 mission "Midnight Pirate Scrounger Patch"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -255,12 +261,14 @@ event "midnight pirate scrounger patch"
 
 
 mission "Midnight Add Heavy Hauler"
+	non-blocking
 	landing
 	invisible
 	to offer
 		has "event: southern carriers 2"
 	on offer
 		event "midnight add heavy hauler"
+		set "heavy hauler smugglers patched"
 		fail
 
 event "midnight add heavy hauler"
@@ -286,8 +294,28 @@ event "midnight add heavy hauler"
 		add variant 1
 			"Modified Quicksilver"
 			"Stingray (Modified Blaster)" 2
+	fleet "Smugglers"
+		add variant 1
+			"Heavy Hauler (Smuggler)"
+
+mission "Midnight Heavy Hauler Smugglers Patch"
+	non-blocking
+	landing
+	invisible
+	to offer
+		has "event: midnight add heavy hauler"
+		not "heavy hauler smugglers patched"
+	on offer
+		event "heavy hauler smugglers patch"
+		fail
+
+event "heavy hauler smugglers patch"
+	fleet "Smugglers"
+		add variant 1
+			"Heavy Hauler (Smuggler)"
 
 mission "Midnight Add Heavy Hauler II"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -324,6 +352,7 @@ event "midnight add heavy hauler ii"
 			"Heavy Hauler II"
 
 mission "Midnight Add Heavy Hauler III"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -400,10 +429,13 @@ event "midnight add heavy hauler iii"
 		add variant 1
 			"Heavy Hauler"
 			"Sparrow"
-
+	fleet "Smugglers"
+		add variant 1
+			"Heavy Hauler III (Smuggler)"
 
 
 mission "Midnight Add Stingrays"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -495,8 +527,8 @@ event "midnight add stingrays"
 			"Stingray" 2
 
 
-
 mission "Midnight Add Isochronal Lasers"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -533,6 +565,7 @@ event "midnight add isochronal lasers"
 			"Falcon (Isochronal)"
 
 mission "Midnight Add Dirt Belt Pirates"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -600,7 +633,6 @@ mission "Midnight Add Dirt Belt Pirate Fleets"
 event "midnight add dirt belt pirate fleets"
 
 
-
 mission "Pirate Blaster Outfitter Upgrade"
 	outfitter
 	invisible
@@ -622,6 +654,7 @@ event "pirate blaster outfitter upgrade"
 		add "Quad Turbo Blaster Turret"
 
 mission "Add Quad Mod Blaster Turrets"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -768,6 +801,7 @@ event "add quad mod blaster turrets"
 
 
 mission "Midnight Add Starbus"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -817,6 +851,7 @@ event "midnight add starbus"
 			"Starbus (Javelin)"
 
 mission "Midnight Add Starbus Small Pirates"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -840,6 +875,7 @@ event "midnight add starbus pirates"
 
 
 mission "Add Stinger Missiles"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -889,65 +925,93 @@ event "add stinger missiles"
 			"Modified Argosy (Stinger)"
 
 
-
 mission "Midnight Independent Fleet Expansion"
+	non-blocking
 	landing
 	invisible
 	to offer
 		has "main plot completed"
 	on offer
 		event "midnight independent fleet expansion"
+		set "midnight independent fleet expansion patched"
 		fail
 
 event "midnight independent fleet expansion"
+	system Citadelle
+		add fleet "Small Independent" 1600
+		add fleet "Large Independent" 3000
+		add fleet "Marauder Independent" 6000
+		add fleet "pirate raid (rivals)" 12000
+	system Alpherg
+		add fleet "Small Independent" 1600
+		add fleet "Large Independent" 3000
+		add fleet "Marauder Independent" 6000
+		add fleet "pirate raid (rivals)" 12000
+	system Belenos
+		add fleet "Small Independent" 1600
+		add fleet "Large Independent" 3000
+		add fleet "Marauder Independent" 6000
+		add fleet "pirate raid (rivals)" 12000
 	system Men
 		add fleet "Small Independent" 400
 		add fleet "Large Independent" 600
 		add fleet "Marauder Independent" 6000
+		add fleet "pirate raid (rivals)" 12000
 	system Antares
 		add fleet "Small Independent" 800
 		add fleet "Large Independent" 1500
 		add fleet "Marauder Independent" 6000
+		add fleet "pirate raid (rivals)" 12000
 	system Shaula
 		add fleet "Small Independent" 1600
 		add fleet "Large Independent" 3000
 		add fleet "Marauder Independent" 6000
+		add fleet "pirate raid (rivals)" 12000
 	system Nunki
 		add fleet "Small Independent" 1600
 		add fleet "Large Independent" 3000
 		add fleet "Marauder Independent" 6000
+		add fleet "pirate raid (rivals)" 12000
 	system Gienah
 		add fleet "Small Independent" 1600
 		add fleet "Large Independent" 3000
 		add fleet "Marauder Independent" 6000
+		add fleet "pirate raid (rivals)" 12000
 	system Algenib
 		add fleet "Small Independent" 1600
 		add fleet "Large Independent" 3000
 		add fleet "Marauder Independent" 6000
+		add fleet "pirate raid (rivals)" 12000
 	system Almach
 		add fleet "Small Independent" 1600
 		add fleet "Large Independent" 3000
 		add fleet "Marauder Independent" 6000
+		add fleet "pirate raid (rivals)" 12000
 	system Alcyone
 		add fleet "Small Independent" 1600
 		add fleet "Large Independent" 3000
 		add fleet "Marauder Independent" 6000
+		add fleet "pirate raid (rivals)" 12000
 	system Almaaz
 		add fleet "Small Independent" 1600
 		add fleet "Large Independent" 3000
 		add fleet "Marauder Independent" 6000
+		add fleet "pirate raid (rivals)" 12000
 	system Alnilam
 		add fleet "Small Independent" 1600
 		add fleet "Large Independent" 3000
 		add fleet "Marauder Independent" 6000
+		add fleet "pirate raid (rivals)" 12000
 	system Arneb
 		add fleet "Small Independent" 1600
 		add fleet "Large Independent" 3000
 		add fleet "Marauder Independent" 6000
+		add fleet "pirate raid (rivals)" 12000
 	system Misam
 		add fleet "Small Independent" 1600
 		add fleet "Large Independent" 3000
 		add fleet "Marauder Independent" 6000
+		add fleet "pirate raid (rivals)" 12000
 	system Archipelago
 		add fleet "S. Advanced Independent" 8400
 	system Chasm
@@ -981,10 +1045,10 @@ event "midnight independent fleet expansion"
 			"Berserker (Strike)"
 		add variant 1
 			"Aerie"
-			"Lance" 2
+			"Lance" 4
 		add variant 1
 			"Aerie"
-			"Dagger" 2
+			"Dagger" 4
 		add variant 1
 			"Raven (Afterburner)"
 		add variant 1
@@ -1047,8 +1111,63 @@ event "midnight independent fleet expansion"
 			"Dagger" 3
 
 
+mission "Midnight Independent Fleet Expansion Patch"
+	non-blocking
+	landing
+	invisible
+	to offer
+		has "event: midnight independent fleet expansion"
+		not "midnight independent fleet expansion patched"
+	on offer
+		event "midnight independent fleet expansion patch"
+		fail
+
+event "midnight independent fleet expansion patch"
+	system Citadelle
+		add fleet "Small Independent" 1600
+		add fleet "Large Independent" 3000
+		add fleet "Marauder Independent" 6000
+		add fleet "pirate raid (rivals)" 12000
+	system Alpherg
+		add fleet "Small Independent" 1600
+		add fleet "Large Independent" 3000
+		add fleet "Marauder Independent" 6000
+		add fleet "pirate raid (rivals)" 12000
+	system Belenos
+		add fleet "Small Independent" 1600
+		add fleet "Large Independent" 3000
+		add fleet "Marauder Independent" 6000
+		add fleet "pirate raid (rivals)" 12000
+	system Men
+		add fleet "pirate raid (rivals)" 12000
+	system Antares
+		add fleet "pirate raid (rivals)" 12000
+	system Shaula
+		add fleet "pirate raid (rivals)" 12000
+	system Nunki
+		add fleet "pirate raid (rivals)" 12000
+	system Gienah
+		add fleet "pirate raid (rivals)" 12000
+	system Algenib
+		add fleet "pirate raid (rivals)" 12000
+	system Almach
+		add fleet "pirate raid (rivals)" 12000
+	system Alcyone
+		add fleet "pirate raid (rivals)" 12000
+	system Almaaz
+		add fleet "pirate raid (rivals)" 12000
+	system Alnilam
+		add fleet "pirate raid (rivals)" 12000
+	system Arneb
+		add fleet "pirate raid (rivals)" 12000
+	system Misam
+		add fleet "pirate raid (rivals)" 12000
+	system Diyu
+		add fleet "pirate raid (rivals)" 12000
+
 
 mission "Midnight Sales Update 1"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -1074,6 +1193,7 @@ event "midnight sales update 1"
 
 
 mission "Midnight Add Basic Fuel"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -1097,6 +1217,7 @@ event "midnight add basic fuel"
 		add outfitter "Basic Fuel"
 
 mission "Add Navy Outfitter"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -1115,6 +1236,7 @@ event "outfitter navy basics"
 		add outfitter "Navy Basics"
 
 mission "Add Navy Outfitter Patch"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -1134,6 +1256,7 @@ event "add navy outfitter patch"
 		remove outfitter "Navy Basics"
 
 mission "Add Navy Basics When Geminus Rebuilt"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -1153,6 +1276,7 @@ event "add navy basics when geminus rebuilt"
 
 
 mission "Add Smuggler's Hideaway"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -1170,6 +1294,7 @@ event "add smuggler's hideaway"
 
 
 mission "Add Limit Breaker"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -1224,6 +1349,7 @@ event "limit breaker syndicate patrols"
 			"Wasp (Limit Break)" 2
 
 mission "Add Limit Breaker New China Patch"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -1238,6 +1364,7 @@ event "add limit breaker new china patch"
 		add outfitter "Limit Breaker"
 
 mission "Add Limit Breaker North Pirates Patch"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -1255,6 +1382,7 @@ event "add limit breaker north pirates patch"
 
 
 mission "Add Energy Cannons"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -1293,13 +1421,13 @@ event "add energy cannons"
 			"Modified Aerie"
 		add variant 1
 			"Aerie (Energy Cannons)"
-			"Dagger" 2
+			"Dagger" 4
 	fleet "Small Deep Merchants"
 		add variant 1
 			"Modified Aerie"
 		add variant 1
 			"Aerie (Energy Cannons)"
-			"Dagger" 2
+			"Dagger" 4
 	fleet "Human Miners"
 		add variant 1
 			"Modified Berserker"
@@ -1378,6 +1506,7 @@ event "add energy cannons"
 			"Rancor"
 
 mission "Energy Cannons Used Shipyard Patch"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -1399,6 +1528,7 @@ event "energy cannons used shipyard patch"
 
 
 mission "Midnight CCOR Update"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -1527,6 +1657,7 @@ event "midnight ccor update"
 			"Headhunter" 2
 
 mission "Midnight CCOR Update Patch"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -1567,6 +1698,7 @@ event "midnight ccor update patch"
 
 
 mission "Pirate Surveillance Pods"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -1583,15 +1715,19 @@ event "pirate surveillance pods"
 
 
 mission "Southern Fleet Flamethrowers"
+	non-blocking
 	landing
 	invisible
 	to offer
 		has "event: flamethrower available"
 	on offer
 		event "southern fleet flamethrowers"
+		set "southern flamethrower pirate patched"
 		fail
 
 event "southern fleet flamethrowers"
+	planet "Smuggler's Den"
+		add outfitter "Modified Plasma Turret"
 	fleet "Large Southern Merchants"
 		add variant 1
 			"Freighter"
@@ -1653,27 +1789,27 @@ event "southern fleet flamethrowers"
 		add variant 1
 			"Clipper (Flamethrower)"
 		add variant 1
-			"Osprey (Flamethrower)"
+			"Osprey (Flamethrower Pirate)"
 			"Fury (Flamethrower)"
 		add variant 1
-			"Osprey (Flamethrower)"
+			"Osprey (Flamethrower Pirate)"
 			"Sparrow (Limit Break)"
 		add variant 1
-			"Osprey (Flamethrower)"
+			"Osprey (Flamethrower Pirate)"
 			"Hawk"
 		add variant 1
 			"Modified Argosy (Flamethrower)"
 			"Fury (Flamethrower)"
 		add variant 1
-			"Bastion (Flamethrower)"
+			"Bastion (Flamethrower Pirate)"
 		add variant 1
-			"Falcon (Flamethrower)"
+			"Falcon (Flamethrower Pirate)"
 		add variant 1
-			"Falcon (Flamethrower)"
+			"Falcon (Flamethrower Pirate)"
 			"Sparrow (Modified Blaster)" 2
 			"Sparrow (Limit Break)"
 		add variant 1
-			"Falcon (Flamethrower)"
+			"Falcon (Flamethrower Pirate)"
 			"Fury (Flamethrower)" 3
 	fleet "Small Independent"
 		add variant 1
@@ -1758,9 +1894,83 @@ event "southern fleet flamethrowers"
 			"Fury (Flamethrower)" 2
 			"Sparrow" 4
 
+outfitter "Modified Plasma Turret"
+	"Modified Plasma Turret"
+
+mission "Southern Flamethrower Pirate Patch"
+	non-blocking
+	landing
+	invisible
+	to offer
+		has "event: southern fleet flamethrowers"
+		not "southern flamethrower pirate patched"
+	on offer
+		event "southern flamethrower pirate patch"
+		fail
+
+event "southern flamethrower pirate patch"
+	planet "Smuggler's Den"
+		add outfitter "Modified Plasma Turret"
+	fleet "Large Southern Pirates"
+		remove variant 1
+			"Osprey (Flamethrower)"
+			"Fury (Flamethrower)"
+		remove variant 1
+			"Osprey (Flamethrower)"
+			"Sparrow (Limit Break)"
+		remove variant 1
+			"Osprey (Flamethrower)"
+			"Hawk"
+		remove variant 1
+			"Bastion (Flamethrower)"
+		remove variant 1
+			"Falcon (Flamethrower)"
+		remove variant 1
+			"Falcon (Flamethrower)"
+			"Sparrow (Modified Blaster)" 2
+			"Sparrow (Limit Break)"
+		remove variant 1
+			"Falcon (Flamethrower)"
+			"Fury (Flamethrower)" 3
+		add variant 1
+			"Osprey (Flamethrower Pirate)"
+			"Fury (Flamethrower)"
+		add variant 1
+			"Osprey (Flamethrower Pirate)"
+			"Sparrow (Limit Break)"
+		add variant 1
+			"Osprey (Flamethrower Pirate)"
+			"Hawk"
+		add variant 1
+			"Bastion (Flamethrower Pirate)"
+		add variant 1
+			"Falcon (Flamethrower Pirate)"
+		add variant 1
+			"Falcon (Flamethrower Pirate)"
+			"Sparrow (Modified Blaster)" 2
+			"Sparrow (Limit Break)"
+		add variant 1
+			"Falcon (Flamethrower Pirate)"
+			"Fury (Flamethrower)" 3
+
+
+mission "Midnight Add Modified Plasma Turret"
+	non-blocking
+	landing
+	invisible
+	to offer
+		has "event: dreadnoughts for sale"
+	on offer
+		event "midnight add modified plasma turret"
+		fail
+
+event "midnight add modified plasma turret"
+	outfitter "Pirate Advanced"
+		add "Modified Plasma Turret"
 
 
 mission "Southern Dreadnought Flamethrowers"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -1786,6 +1996,7 @@ event "southern dreadnought flamethrowers"
 
 
 mission "Southern Skein Flamethrowers"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -1810,9 +2021,8 @@ event "southern skein flamethrowers"
 			"Finch (Flamethrower)" 6
 
 
-
-
 mission "Northern Pirate Drones"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -1828,6 +2038,7 @@ event "northern pirate drones"
 		add "Pirate Drone"
 
 mission "North Pirate Drone Test"
+	non-blocking
 	landing
 	invisible
 	repeat
@@ -1849,6 +2060,7 @@ mission "North Pirate Drone Test"
 				"Pirate Drone (Modified)" 2
 
 mission "North Pirate Drone Fleet"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -1870,6 +2082,7 @@ event "north pirate drone fleet"
 			"Pirate Drone (Modified)" 4
 
 mission "Core Pirate Drones"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -1886,6 +2099,7 @@ event "core pirate drones"
 		add "Pirate Drone"
 
 mission "Core Pirate Drone Test"
+	non-blocking
 	landing
 	invisible
 	source
@@ -1908,6 +2122,7 @@ mission "Core Pirate Drone Test"
 		"Core Pirate Drone Test: offered" --
 
 mission "Southern Pirate Drones"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -1934,6 +2149,7 @@ event "southern pirate drones"
 
 
 mission "Pirate Drone Carriers Patch"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -1999,6 +2215,7 @@ event "star explorer added to merchant fleets"
 			"Hacker Drone"
 
 mission "Star Explorer update"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -2079,6 +2296,7 @@ event "independent star explorers"
 			"Pirate Drone"
 
 mission "Midnight Add Shuttle Pod"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -2098,12 +2316,14 @@ event "midnight add shuttle pod"
 
 
 mission "Add Base Heavy Syndicate Marauders"
+	non-blocking
 	landing
 	invisible
 	to offer
 		has "main plot completed"
 	on offer
 		event "add base heavy syndicate marauders"
+		set "add base heavy syndicate marauders patched"
 		fail
 
 event "add base heavy syndicate marauders"
@@ -2161,28 +2381,109 @@ event "add base heavy syndicate marauders"
 			"Manta (Mark II)"
 			"Manta (Proton)"
 	fleet "Marauder fleet X"
-		variant 3
+		add variant 3
 			"Marauder Protector"
 			"Marauder Firebird"
 			"Marauder Raven (Weapons)"
 			"Marauder Quicksilver (Engines)"
 			"Marauder Arrow (Weapons)"
 			"Marauder Bounder (Engines)"
-		variant 3
+		add variant 3
 			"Marauder Protector"
 			"Marauder Firebird"
 			"Marauder Raven (Engines)"
 			"Marauder Quicksilver (Weapons)"
 			"Marauder Arrow (Engines)"
 			"Marauder Bounder (Weapons)"
-		variant 3
+		add variant 3
 			"Marauder Vanguard"
 			"Marauder Firebird"
 			"Marauder Raven (Weapons)"
 			"Marauder Quicksilver (Engines)"
 			"Marauder Arrow (Weapons)"
 			"Marauder Bounder (Engines)"
-		variant 3
+		add variant 3
+			"Marauder Vanguard"
+			"Marauder Firebird"
+			"Marauder Raven (Engines)"
+			"Marauder Quicksilver (Weapons)"
+			"Marauder Arrow (Engines)"
+			"Marauder Bounder (Weapons)"
+
+mission "Add Base Heavy Syndicate Marauders Patch"
+	non-blocking
+	landing
+	invisible
+	to offer
+		has "event: add marauder behemoths patch"
+		has "event: add base heavy syndicate marauders"
+		not "add base heavy syndicate marauders patched"
+	on offer
+		event "add base heavy syndicate marauders patch"
+		fail
+
+event "add base heavy syndicate marauders patch"
+	fleet "Marauder IV"
+		add variant 5
+			"Marauder Protector"
+		add variant 5
+			"Marauder Vanguard"
+	fleet "Marauder fleet VII"
+		add variant 18
+			"Marauder Protector"
+			"Splinter"
+			"Splinter (Mark II)"
+			"Splinter (Proton)"
+		add variant 18
+			"Marauder Vanguard"
+			"Manta"
+			"Manta (Mark II)"
+			"Manta (Proton)"
+	fleet "Marauder fleet VIII"
+		add variant 8
+			"Marauder Protector"
+			"Splinter"
+			"Splinter (Mark II)"
+			"Splinter (Proton)"
+		add variant 8
+			"Marauder Vanguard"
+			"Manta"
+			"Manta (Mark II)"
+			"Manta (Proton)"
+	fleet "Marauder fleet IX"
+		add variant 3
+			"Marauder Protector"
+			"Splinter"
+			"Splinter (Mark II)"
+			"Splinter (Proton)"
+		add variant 3
+			"Marauder Vanguard"
+			"Manta"
+			"Manta (Mark II)"
+			"Manta (Proton)"
+	fleet "Marauder fleet X"
+		add variant 3
+			"Marauder Protector"
+			"Marauder Firebird"
+			"Marauder Raven (Weapons)"
+			"Marauder Quicksilver (Engines)"
+			"Marauder Arrow (Weapons)"
+			"Marauder Bounder (Engines)"
+		add variant 3
+			"Marauder Protector"
+			"Marauder Firebird"
+			"Marauder Raven (Engines)"
+			"Marauder Quicksilver (Weapons)"
+			"Marauder Arrow (Engines)"
+			"Marauder Bounder (Weapons)"
+		add variant 3
+			"Marauder Vanguard"
+			"Marauder Firebird"
+			"Marauder Raven (Weapons)"
+			"Marauder Quicksilver (Engines)"
+			"Marauder Arrow (Weapons)"
+			"Marauder Bounder (Engines)"
+		add variant 3
 			"Marauder Vanguard"
 			"Marauder Firebird"
 			"Marauder Raven (Engines)"
@@ -2192,12 +2493,14 @@ event "add base heavy syndicate marauders"
 
 
 mission "Add Marauder Behemoths"
+	non-blocking
 	landing
 	invisible
 	to offer
 		has "main plot completed"
 	on offer
 		event "add marauder behemoths"
+		set "add marauder behemoths patched"
 		fail
 
 event "add marauder behemoths"
@@ -2214,32 +2517,32 @@ event "add marauder behemoths"
 			"Marauder Behemoth"
 			"Dagger" 2
 	fleet "Marauder IV"
-		variant 5
+		add variant 5
 			"Marauder Behemoth"
 			"Dagger" 2
 	fleet "Marauder fleet VII"
-		variant 18
+		add variant 18
 			"Marauder Behemoth"
 			"Dagger" 2
 			"Firebird"
 			"Firebird (Plasma)"
 			"Firebird (Missile)"
 	fleet "Marauder fleet VIII"
-		variant 8
+		add variant 8
 			"Marauder Behemoth"
 			"Dagger" 2
 			"Firebird"
 			"Firebird (Plasma)"
 			"Firebird (Missile)"
 	fleet "Marauder fleet IX"
-		variant 3
+		add variant 3
 			"Marauder Behemoth"
 			"Dagger" 2
 			"Firebird"
 			"Firebird (Plasma)"
 			"Firebird (Missile)"
 	fleet "Marauder fleet X"
-		variant 3
+		add variant 3
 			"Marauder Behemoth"
 			"Dagger" 2
 			"Marauder Firebird"
@@ -2247,7 +2550,7 @@ event "add marauder behemoths"
 			"Marauder Quicksilver (Engines)"
 			"Marauder Arrow (Weapons)"
 			"Marauder Bounder (Engines)"
-		variant 3
+		add variant 3
 			"Marauder Behemoth"
 			"Dagger" 2
 			"Marauder Firebird"
@@ -2256,41 +2559,230 @@ event "add marauder behemoths"
 			"Marauder Arrow (Engines)"
 			"Marauder Bounder (Weapons)"
 
+mission "Add Marauder Behemoths Patch"
+	non-blocking
+	landing
+	invisible
+	to offer
+		has "event: add marauder behemoths"
+		not "add marauder behemoths patched"
+	on offer
+		event "add marauder behemoths patch"
+		fail
+
+event "add marauder behemoths patch"
+	fleet "Marauder IV"
+		add variant 3
+			"Marauder Falcon"
+		add variant 1
+			"Marauder Falcon (Weapons)"
+		add variant 1
+			"Marauder Falcon (Engines)"
+		add variant 3
+			"Marauder Leviathan"
+		add variant 1
+			"Marauder Leviathan (Weapons)"
+		add variant 1
+			"Marauder Leviathan (Engines)"
+	fleet "Marauder fleet VII"
+		add variant 18
+			"Marauder Falcon"
+			"Osprey"
+			"Osprey (Missile)"
+			"Osprey (Laser)"
+		add variant 1
+			"Marauder Falcon (Weapons)"
+			"Osprey"
+			"Osprey (Missile)"
+			"Osprey (Laser)"
+		add variant 1
+			"Marauder Falcon (Engines)"
+			"Osprey"
+			"Osprey (Missile)"
+			"Osprey (Laser)"
+		add variant 18
+			"Marauder Leviathan"
+			"Firebird"
+			"Firebird (Plasma)"
+			"Firebird (Missile)"
+		add variant 1
+			"Marauder Leviathan (Engines)"
+			"Firebird"
+			"Firebird (Plasma)"
+			"Firebird (Missile)"
+		add variant 1
+			"Marauder Leviathan (Weapons)"
+			"Firebird"
+			"Firebird (Plasma)"
+			"Firebird (Missile)"
+		add variant 1
+			"Marauder Leviathan (Weapons)"
+			"Firebird (Laser)" 3
+	fleet "Marauder fleet VIII"
+		add variant 8
+			"Marauder Falcon"
+			"Osprey"
+			"Osprey (Missile)"
+			"Osprey (Laser)"
+		add variant 1
+			"Marauder Falcon (Weapons)"
+			"Osprey"
+			"Osprey (Missile)"
+			"Osprey (Laser)"
+		add variant 1
+			"Marauder Falcon (Engines)"
+			"Osprey"
+			"Osprey (Missile)"
+			"Osprey (Laser)"
+		add variant 8
+			"Marauder Leviathan"
+			"Firebird"
+			"Firebird (Plasma)"
+			"Firebird (Missile)"
+		add variant 1
+			"Marauder Leviathan (Engines)"
+			"Firebird"
+			"Firebird (Plasma)"
+			"Firebird (Missile)"
+		add variant 1
+			"Marauder Leviathan (Weapons)"
+			"Firebird"
+			"Firebird (Plasma)"
+			"Firebird (Missile)"
+	fleet "Marauder fleet IX"
+		add variant 3
+			"Marauder Falcon"
+			"Osprey"
+			"Osprey (Missile)"
+			"Osprey (Laser)"
+		add variant 1
+			"Marauder Falcon (Weapons)"
+			"Osprey"
+			"Osprey (Missile)"
+			"Osprey (Laser)"
+		add variant 1
+			"Marauder Falcon (Engines)"
+			"Osprey"
+			"Osprey (Missile)"
+			"Osprey (Laser)"
+		add variant 3
+			"Marauder Leviathan"
+			"Firebird"
+			"Firebird (Plasma)"
+			"Firebird (Missile)"
+		add variant 1
+			"Marauder Leviathan (Engines)"
+			"Firebird"
+			"Firebird (Plasma)"
+			"Firebird (Missile)"
+		add variant 1
+			"Marauder Leviathan (Weapons)"
+			"Firebird"
+			"Firebird (Plasma)"
+			"Firebird (Missile)"
+		add variant 1
+			"Marauder Leviathan (Weapons)"
+			"Firebird (Laser)" 3
+			"Firebird (Missile)"
+	fleet "Marauder fleet X"
+		add variant 3
+			"Marauder Falcon"
+			"Marauder Firebird"
+			"Marauder Raven (Weapons)"
+			"Marauder Quicksilver (Engines)"
+			"Marauder Arrow (Weapons)"
+			"Marauder Bounder (Engines)"
+		add variant 3
+			"Marauder Falcon"
+			"Marauder Firebird"
+			"Marauder Raven (Engines)"
+			"Marauder Quicksilver (Weapons)"
+			"Marauder Arrow (Engines)"
+			"Marauder Bounder (Weapons)"
+		add variant 2
+			"Marauder Falcon (Weapons)"
+			"Marauder Firebird (Engines)"
+			"Marauder Raven"
+			"Marauder Quicksilver"
+			"Marauder Arrow"
+			"Marauder Bounder"
+		add variant 2
+			"Marauder Falcon (Engines)"
+			"Marauder Firebird (Weapons)"
+			"Marauder Raven"
+			"Marauder Quicksilver"
+			"Marauder Arrow"
+			"Marauder Bounder"
+		add variant 3
+			"Marauder Leviathan"
+			"Marauder Firebird"
+			"Marauder Raven (Engines)"
+			"Marauder Quicksilver (Weapons)"
+			"Marauder Arrow (Engines)"
+			"Marauder Bounder (Weapons)"
+		add variant 3
+			"Marauder Leviathan"
+			"Marauder Firebird"
+			"Marauder Raven (Weapons)"
+			"Marauder Quicksilver (Engines)"
+			"Marauder Arrow (Weapons)"
+			"Marauder Bounder (Engines)"
+		add variant 2
+			"Marauder Leviathan (Engines)"
+			"Marauder Firebird (Weapons)"
+			"Marauder Raven"
+			"Marauder Quicksilver"
+			"Marauder Arrow"
+			"Marauder Bounder"
+		add variant 2
+			"Marauder Leviathan (Weapons)"
+			"Marauder Firebird (Engines)"
+			"Marauder Raven"
+			"Marauder Quicksilver"
+			"Marauder Arrow"
+			"Marauder Bounder"
 
 
 mission "Add Oathbreaker Marauders"
+	non-blocking
 	landing
 	invisible
 	to offer
 		has "event: Oathbreaker diminish 2"
 	on offer
 		event "add oathbreaker marauders"
+		set "add oathbreaker marauders patched"
 		fail
 
 event "add oathbreaker marauders"
 	fleet "Marauder Independent"
 		add variant 6
 			"Marauder Bastion"
+			"Pirate Drone"
 		add variant 6
 			"Marauder Osprey"
 	fleet "Marauder Bounty (Disguised)"
 		add variant 6
 			"Marauder Bastion"
+			"Pirate Drone"
 		add variant 6
 			"Marauder Osprey"
 	fleet "Marauder Independent (Killable)"
 		add variant 6
 			"Marauder Bastion"
+			"Pirate Drone"
 		add variant 6
 			"Marauder Osprey"
 	fleet "Marauder III"
 		add variant 5
 			"Marauder Bastion"
+			"Pirate Drone"
 		add variant 5
 			"Marauder Osprey"
 	fleet "Marauder fleet IV"
 		add variant 8
 			"Marauder Bastion"
+			"Pirate Drone"
 			"Marauder Raven"
 			"Marauder Quicksilver"
 		add variant 8
@@ -2300,6 +2792,7 @@ event "add oathbreaker marauders"
 	fleet "Marauder fleet V"
 		add variant 4
 			"Marauder Bastion"
+			"Pirate Drone"
 			"Marauder Raven"
 			"Marauder Quicksilver"
 		add variant 4
@@ -2309,6 +2802,7 @@ event "add oathbreaker marauders"
 	fleet "Marauder fleet VI"
 		add variant 2
 			"Marauder Bastion"
+			"Pirate Drone"
 			"Marauder Raven"
 			"Marauder Quicksilver"
 		add variant 2
@@ -2316,6 +2810,30 @@ event "add oathbreaker marauders"
 			"Marauder Raven"
 			"Marauder Quicksilver"
 
+mission "Add Oathbreaker Marauders Patch"
+	non-blocking
+	landing
+	invisible
+	to offer
+		has "event: add oathbreaker marauders"
+		has "event: add marauder behemoths patch"
+		has "event: add base heavy syndicate marauders patch"
+		not "add oathbreaker marauders patched"
+	on offer
+		event "add oathbreaker marauders patch"
+		fail
+
+event "add oathbreaker marauders patch"
+	fleet "Marauder fleet IV"
+		add variant 8
+			"Marauder Bastion"
+			"Pirate Drone"
+			"Marauder Raven"
+			"Marauder Quicksilver"
+		add variant 8
+			"Marauder Osprey"
+			"Marauder Raven"
+			"Marauder Quicksilver"
 
 
 event "auxiliary battle update"
@@ -2375,15 +2893,14 @@ event "add navy outrider escorts"
 			"Outrider" 8
 		add variant 1
 			"Carrier"
-			"Lance" 4
+			"Lance" 8
 			"Combat Drone" 6
 			"Outrider" 2
 		add variant 1
 			"Carrier"
-			"Lance" 4
-			"Combat Drone" 6
+			"Lance" 8
 			"Cruiser"
-			"Combat Drone" 4
+			"Combat Drone" 10
 			"Frigate" 2
 			"Rainmaker" 2
 			"Gunboat" 2
@@ -2488,6 +3005,7 @@ event "add navy outrider escorts"
 			"Outrider" 6
 
 mission "Outrider Mark II update"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -2522,12 +3040,12 @@ event "outrider mark II update"
 			"Outrider (Mark II)" 8
 		add variant 2
 			"Carrier (Mark II)"
-			"Lance" 4
+			"Lance" 8
 			"Combat Drone" 6
 			"Outrider (Mark II)" 2
 		add variant 2
 			"Carrier (Mark II)"
-			"Lance" 4
+			"Lance" 8
 			"Combat Drone" 6
 			"Cruiser (Mark II)"
 			"Combat Drone" 4
@@ -2665,12 +3183,12 @@ event "outrider mark II update"
 			"Outrider" 8
 		add variant 2
 			"Carrier"
-			"Lance" 4
+			"Lance" 8
 			"Combat Drone" 6
 			"Outrider" 2
 		add variant 2
 			"Carrier"
-			"Lance" 4
+			"Lance" 8
 			"Combat Drone" 6
 			"Cruiser"
 			"Combat Drone" 4
@@ -2690,6 +3208,7 @@ event "outrider mark II update"
 			"Outrider" 2
 
 mission "Beacon Drone Mark II Patch"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -2723,6 +3242,7 @@ event "beacon drone mark II patch"
 
 
 mission "Add Twin Torpedo Pods"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -2731,6 +3251,7 @@ mission "Add Twin Torpedo Pods"
 		event "add twin torpedo pods"
 		set "added pirate raid rivals twin torpedo pods"
 		set "restricted twin torpedo pods"
+		set "plasma twin torpedo pod patched"
 		fail
 
 event "add twin torpedo pods"
@@ -2744,7 +3265,7 @@ event "add twin torpedo pods"
 		add variant 1
 			"Modified Argosy (Twin Torpedo Pod)"
 		add variant 1
-			"Falcon (Twin Torpedo Pod)"
+			"Falcon (Twin Torpedo Pod Pirate)"
 		add variant 1
 			"Firebird (Twin Torpedo Pod)"
 		add variant 1
@@ -2762,7 +3283,7 @@ event "add twin torpedo pods"
 		add variant 1
 			"Modified Argosy (Twin Torpedo Pod)"
 		add variant 1
-			"Falcon (Twin Torpedo Pod)"
+			"Falcon (Twin Torpedo Pod Pirate)"
 		add variant 1
 			"Firebird (Twin Torpedo Pod)"
 		add variant 1
@@ -2787,10 +3308,10 @@ event "add twin torpedo pods"
 			"Fury (Heavy)" 2
 			"Modified Argosy (Twin Torpedo Pod)"
 		add variant 1
-			"Falcon (Twin Torpedo Pod)"
+			"Falcon (Twin Torpedo Pod Pirate)"
 	fleet "Large Core Pirates"
 		add variant 1
-			"Falcon (Twin Torpedo Pod)"
+			"Falcon (Twin Torpedo Pod Pirate)"
 		add variant 1
 			"Firebird (Twin Torpedo Pod)"
 	fleet "Small Northern Pirates"
@@ -2806,7 +3327,7 @@ event "add twin torpedo pods"
 			"Corvette (Twin Torpedo Pod)"
 		add variant 1
 			"Aerie"
-			"Dagger" 2
+			"Dagger" 4
 			"Corvette (Twin Torpedo Pod)"
 		add variant 1
 			"Leviathan (Twin Torpedo Pod)"
@@ -2821,6 +3342,7 @@ event "add twin torpedo pods"
 			"Dagger" 3
 
 mission "Add Twin Torpedo Pods Rivals Patch"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -2835,7 +3357,7 @@ event "add twin torpedo pods rivals patch"
 		add variant 1
 			"Modified Argosy (Twin Torpedo Pod)"
 		add variant 1
-			"Falcon (Twin Torpedo Pod)"
+			"Falcon (Twin Torpedo Pod Pirate)"
 		add variant 1
 			"Firebird (Twin Torpedo Pod)"
 		add variant 1
@@ -2851,6 +3373,7 @@ event "add twin torpedo pods rivals patch"
 			"Firebird (Twin Torpedo Pod)"
 
 mission "Restrict Twin Torpedo Pods Patch"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -2869,6 +3392,41 @@ event "restrict twin torpedo pods"
 		add outfitter "Twin Torpedo Pod"
 	planet "New Tortuga"
 		add outfitter "Twin Torpedo Pod"
+
+mission "Plasma Twin Torpedo Pod Patch"
+	non-blocking
+	landing
+	invisible
+	to offer
+		has "event: add twin torpedo pods"
+		not "plasma twin torpedo pod patched"
+	on offer
+		event "plasma twin torpedo pod patch"
+		fail
+
+event "plasma twin torpedo pod patch"
+	fleet "pirate raid"
+		remove variant 1
+			"Falcon (Twin Torpedo Pod)"
+		add variant 1
+			"Falcon (Twin Torpedo Pod Pirate)"
+	fleet "pirate raid (rivals)"
+		remove variant 1
+			"Falcon (Twin Torpedo Pod)"
+		add variant 1
+			"Falcon (Twin Torpedo Pod Pirate)"
+	fleet "Large Southern Pirates"
+		remove variant 1
+			"Falcon (Twin Torpedo Pod)"
+		add variant 1
+			"Falcon (Twin Torpedo Pod Pirate)"
+	fleet "Large Core Pirates"
+		remove variant 1
+			"Falcon (Twin Torpedo Pod)"
+		add variant 1
+			"Falcon (Twin Torpedo Pod Pirate)"
+
+
 
 
 event "kraz twin torpedo pods"
@@ -2910,6 +3468,7 @@ event "kraz twin torpedo pods"
 			"Sparrow" 3
 
 mission "Dreadnought Twin Torpedo Pods"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -2927,6 +3486,7 @@ event "dreadnought twin torpedo pods"
 
 
 mission "Add Modified Clippers"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -2979,12 +3539,14 @@ event "add modified clippers"
 
 
 mission "Add Marauder Argosy"
+	non-blocking
 	landing
 	invisible
 	to offer
 		has "main plot completed"
 	on offer
 		event "add marauder argosy"
+		set "midnight marauder barb patched"
 		fail
 
 event "add marauder argosy"
@@ -2995,6 +3557,8 @@ event "add marauder argosy"
 			"Marauder Argosy (Sniper)"
 		add variant 6
 			"Marauder Argosy (Afterburner)"
+		add variant 1
+			"Marauder Barb"
 	fleet "Marauder Bounty (Disguised)"
 		add variant 6
 			"Marauder Argosy"
@@ -3002,6 +3566,8 @@ event "add marauder argosy"
 			"Marauder Argosy (Sniper)"
 		add variant 6
 			"Marauder Argosy (Afterburner)"
+		add variant 1
+			"Marauder Barb"
 	fleet "Marauder Independent (Killable)"
 		add variant 6
 			"Marauder Argosy"
@@ -3009,6 +3575,8 @@ event "add marauder argosy"
 			"Marauder Argosy (Sniper)"
 		add variant 6
 			"Marauder Argosy (Afterburner)"
+		add variant 1
+			"Marauder Barb"
 	fleet "Marauder II"
 		add variant 3
 			"Marauder Argosy"
@@ -3019,21 +3587,79 @@ event "add marauder argosy"
 	fleet "pirate raid"
 		add variant 1
 			"Marauder Argosy"
-			"Fury (Flamethrower)" 2
+			"Marauder Barb" 2
 		add variant 1
 			"Marauder Argosy (Sniper)"
-			"Hawk (Inferno Rockets)" 2
+			"Marauder Barb"
+			"Marauder Barb (Plasma Cannon)"
 		add variant 1
 			"Marauder Argosy (Afterburner)"
-			"Raven (Afterburner)" 2
+			"Marauder Barb"
+			"Marauder Barb (Proton Gun)"
 	fleet "Bounty Hunters"
 		add variant 1
 			"Marauder Argosy (Bounty Hunter)"
-			"Fury (Missile)"
+			"Marauder Barb (Energy Cannon)"
+	fleet "Marauder I"
+		add variant 3
+			"Marauder Barb"
 
+mission "Midnight Marauder Barb Patch"
+	non-blocking
+	landing
+	invisible
+	to offer
+		has "event: add marauder argosy"
+		not "midnight marauder barb patched"
+	on offer
+		event "midnight marauder barb patch"
+		fail
+
+event "midnight marauder barb patch"
+	fleet "pirate raid"
+		remove variant 1
+			"Marauder Argosy"
+			"Fury (Flamethrower)" 2
+		remove variant 1
+			"Marauder Argosy (Sniper)"
+			"Hawk (Inferno Rockets)" 2
+		remove variant 1
+			"Marauder Argosy (Afterburner)"
+			"Raven (Afterburner)" 2
+		add variant 1
+			"Marauder Argosy"
+			"Marauder Barb" 2
+		add variant 1
+			"Marauder Argosy (Sniper)"
+			"Marauder Barb"
+			"Marauder Barb (Plasma Cannon)"
+		add variant 1
+			"Marauder Argosy (Afterburner)"
+			"Marauder Barb"
+			"Marauder Barb (Proton Gun)"
+	fleet "Bounty Hunters"
+		remove variant 1
+			"Marauder Argosy (Bounty Hunter)"
+			"Fury (Missile)"
+		add variant 1
+			"Marauder Argosy (Bounty Hunter)"
+			"Marauder Barb (Energy Cannon)"
+	fleet "Marauder I"
+		add variant 3
+			"Marauder Barb"
+	fleet "Marauder Independent"
+		add variant 1
+			"Marauder Barb"
+	fleet "Marauder Bounty (Disguised)"
+		add variant 1
+			"Marauder Barb"
+	fleet "Marauder Independent (Killable)"
+		add variant 1
+			"Marauder Barb"
 
 
 mission "Add Marauder Sparrow"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -3050,6 +3676,7 @@ event "add marauder sparrow"
 			"Marauder Sparrow (Afterburner)"
 
 mission "Add Marauder Wasp"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -3067,6 +3694,7 @@ event "add marauder wasp"
 
 
 mission "Add Basic Modified Shields"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -3153,6 +3781,7 @@ event "add basic modified shields"
 			"Raven (Afterburner)" 2
 
 mission "Add Upgraded Modified Shields"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -3172,6 +3801,7 @@ event "add upgraded modified shields"
 		add outfitter "Modified D67-TM Shielding"
 
 mission "Add Advanced Modified Shields"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -3195,6 +3825,7 @@ event "add advanced modified shields"
 
 
 mission "Add Basic Marauders to Pirate Raid Fleet"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -3225,8 +3856,8 @@ event "add basic marauders to pirate raid fleet"
 			"Marauder Bounder"
 
 
-
 mission "Midnight Core Fleet Proton Upgrades"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -3330,8 +3961,8 @@ event "add core fleet proton upgrades"
 			"Quicksilver (Proton)" 2
 
 
-
 mission "Add Midnight Navy Surplus Ships"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -3378,6 +4009,7 @@ event "add midnight navy surplus ships"
 			"Patrolboat" 2
 
 mission "Remove Midnight Navy Surplus Ships Sales"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -3391,7 +4023,6 @@ event "Remove midnight navy surplus ships sales"
 		remove "Missileboat"
 		remove "Patrolboat"
 		remove "Outrider (Surplus)"
-
 
 
 event "starcadia added to deep security"
@@ -3414,7 +4045,7 @@ event "starcadia added to deep security"
 		add variant 1
 			"Starcadia"
 			"Aerie"
-			"Dagger" 2
+			"Dagger" 4
 		add variant 1
 			"Starcadia"
 		add variant 1
@@ -3437,8 +4068,8 @@ event "starcadia added to deep security"
 			"Headhunter (Strike)" 2
 
 
-
 mission "Midnight Add Syndicate Stock"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -3482,8 +4113,8 @@ event "midnight add syndicate stock"
 		add outfitter "Syndicate Stock"
 
 
-
 mission "Midnight Add Human Fuel Logistics"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -3541,6 +4172,7 @@ event "midnight add human fuel logistics"
 			"Splinter"
 
 mission "Midnight Add Heavy Freighters"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -3961,6 +4593,7 @@ event "midnight add heavy freighters"
 
 
 mission "Midnight Pirate Power"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -3986,8 +4619,8 @@ event "midnight pirate power"
 		add outfitter "Basic Pirate Power"
 
 
-
 mission "Midnight Star King"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -4036,8 +4669,8 @@ event "midnight star king sales"
 			"Star King (Hai Engines)"
 
 
-
 mission "Midnight Merchant Bays Kestrels"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -4053,6 +4686,7 @@ event "midnight merchant bays kestrels"
 			"Finch" 6
 
 mission "Midnight Merchant Engines Kestrels"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -4068,6 +4702,7 @@ event "midnight merchant engines kestrels"
 			"Finch" 2
 
 mission "Midnight Merchant Shields Kestrels"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -4083,6 +4718,7 @@ event "midnight merchant shields kestrels"
 			"Finch" 2
 
 mission "Midnight Merchant Weapons Kestrels"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -4100,6 +4736,7 @@ event "midnight merchant weapons kestrels"
 
 
 mission "Midnight Add Syndicate Mass Transports"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -4165,8 +4802,8 @@ event "midnight add syndicate mass transports"
 			"Quicksilver"
 
 
-
 mission "Midnight Add Spotlight"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -4229,6 +4866,7 @@ event "midnight add spotlight"
 		add fleet "Republic Police" 2500
 
 mission "Midnight Reduce Republic Police"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -4304,7 +4942,6 @@ event "midnight reduce republic police"
 		add fleet "Republic Police" 5000
 
 
-
 event "Mega Freighter added to shipyards"
 	shipyard "Syndicate Advanced"
 		add "Mega Freighter"
@@ -4335,3 +4972,136 @@ event "Proton Gun-CF8 added to outfitters"
 event "Proton Turret-ATS added to outfitters"
 	outfitter "Syndicate Advanced"
 		add "Proton Turret-ATS"
+
+
+mission "Midnight Add Modified Barb"
+	non-blocking
+	landing
+	invisible
+	to offer
+		has "main plot completed"
+	on offer
+		event "midnight add modified barb"
+		fail
+
+event "midnight add modified barb"
+	shipyard "Advanced Core Pirates"
+		add "Modified Barb"
+		add "Modified Hauler"
+	shipyard "Dirt Belt Pirates (South)"
+		add "Modified Barb"
+	fleet "pirate raid"
+		add variant 1
+			"Modified Hauler"
+			"Modified Barb (Energy Cannon)"
+		add variant 1
+			"Modified Hauler"
+			"Modified Barb (Plasma Cannon)"
+		add variant 1
+			"Nest"
+			"Modified Barb (Energy Cannon)" 2
+		add variant 1
+			"Nest"
+			"Modified Barb (Plasma Cannon)" 2
+	fleet "Small Core Pirates"
+		add variant 1
+			"Modified Hauler"
+			"Modified Barb"
+		add variant 1
+			"Modified Hauler"
+			"Modified Barb (Inferno Rocket)"
+		add variant 1
+			"Modified Hauler"
+			"Modified Barb (Javelin)"
+	fleet "Small Southern Pirates"
+		add variant 1
+			"Nest"
+			"Modified Barb" 2
+		add variant 1
+			"Nest"
+			"Modified Barb (Heavy Rocket)" 2
+		add variant 1
+			"Nest"
+			"Modified Barb (Inferno Rocket)" 2
+	fleet "Large Southern Pirates"
+		add variant 1
+			"Roost"
+			"Modified Barb" 4
+		add variant 1
+			"Roost"
+			"Modified Barb (Heavy Rocket)" 4
+		add variant 1
+			"Roost"
+			"Modified Barb (Inferno Rocket)" 4
+	fleet "Small Dirt Belt Pirates"
+		add variant 1
+			"Modified Hauler (Turbo Blaster)"
+			"Modified Barb"
+		add variant 1
+			"Modified Hauler (Turbo Blaster)"
+			"Modified Barb (Inferno Rocket)"
+	fleet "Large Dirt Belt Pirates"
+		add variant 1
+			"Modified Hauler II (Turbo Blaster)"
+			"Modified Barb" 2
+		add variant 1
+			"Modified Hauler II (Turbo Blaster)"
+			"Modified Barb (Inferno Rocket)" 2
+		add variant 1
+			"Modified Hauler III (Turbo Blaster)"
+			"Modified Barb" 3
+		add variant 1
+			"Modified Hauler III (Turbo Blaster)"
+			"Modified Barb (Inferno Rocket)" 3
+	fleet "Small CCOR"
+		add variant 1
+			"Modified Hauler"
+			"Modified Barb (Energy Cannon)"
+		add variant 1
+			"Modified Hauler"
+			"Modified Barb"
+	fleet "Large CCOR"
+		add variant 1
+			"Basket-hilt"
+			"Modified Barb (Energy Cannon)"
+		add variant 1
+			"Basket-hilt (CCOR)"
+			"Modified Barb"
+		add variant 1
+			"Basket-hilt b"
+			"Modified Barb (Energy Cannon)"
+		add variant 1
+			"Basket-hilt b (CCOR)"
+			"Modified Barb"
+		add variant 1
+			"Broadsword"
+			"Modified Barb (Energy Cannon)" 2
+		add variant 1
+			"Broadsword (CCOR)"
+			"Modified Barb" 2
+
+
+mission "Midnight Add Pirate Junk"
+	non-blocking
+	landing
+	invisible
+	on offer
+		event "midnight add pirate junk"
+		fail
+
+event "midnight add pirate junk"
+	outfitter "Pirate Basics"
+		add "Chimera Junk Thruster"
+		add "Chimera Junk Steering"
+		add "Griffin Junk Thruster"
+		add "Griffin Junk Steering"
+		add "Hippogriff Junk Thruster"
+		add "Hippogriff Junk Steering"
+	outfitter "Pirate Advanced"
+		add "Detachable Heat Sink"
+		add "Manticore Junk Thruster"
+		add "Manticore Junk Steering"
+		add "Tarasque Junk Thruster"
+		add "Tarasque Junk Steering"
+	planet Sunracer
+		add outfitter "Sunracers"

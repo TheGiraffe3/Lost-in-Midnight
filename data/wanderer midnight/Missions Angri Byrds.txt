@@ -87,24 +87,26 @@ mission "Midnight Wanderer Distress"
 #----------Wanderer worlds retained by Wanderers after Unfettered invasion------------
 
 mission "Angri Byrds"
+	non-blocking
 	landing
 	invisible
 	to offer
 		or
+			has "Wanderers Pug Hostile: offered"
 			has "Wanderers Ap'arak 3: Pug: done"
 			and
 				has "Wanderers Ap'arak 3: Pug 1: failed"
 				has "Wanderers Ap'arak 3: Pug 2: failed"
 				"reputation: Wanderer" < 0
 	on offer
-		event "angri byrds"
+#		event "angri byrds"
 		clear "license: Wanderer"
 		clear "license: Wanderer Outfits"
 		clear "license: Wanderer Military"
 		fail
 
 
-
+# this event is no longer necessary because vanilla has added wanderer planet tributes
 event "angri byrds"
 	planet "Varu Tev'kei"
 		tribute 500
@@ -156,12 +158,14 @@ event "angri byrds"
 #-----Worlds in Korath space colonized by Wanderers-----
 
 mission "Angri Byrds 2"
+	non-blocking
 	landing
 	invisible
 	to offer
 		has "Wanderers Ap'arak 3: done"
 		or
 			has "event: angri byrds"
+			has "Angri Byrds: offered"
 			has "Wanderers Ap'arak 3: Pug: done"
 	on offer
 		event "Wanderers tribute Spera Anatrusk"
@@ -173,12 +177,14 @@ event "Wanderers tribute Spera Anatrusk"
 
 
 mission "Angri Byrds 3"
+	non-blocking
 	landing
 	invisible
 	to offer
 		has "Wanderers: Mentors 3: done"
 		or
 			has "event: angri byrds"
+			has "Angri Byrds: offered"
 			has "Wanderers Ap'arak 3: Pug: done"
 	on offer
 		event "Wanderer tribute Desi Seledrak" 24
@@ -192,12 +198,14 @@ event "Wanderer tribute Desi Seledrak"
 
 # Locked for version 0.9.14. Ready to unlock if colony expands in later version of vanilla game.
 #mission "Angri Byrds 4"
+#	non-blocking
 #	landing
 #	invisible
 #	to offer
 #		has "event: wanderers: sabira eseskrai colony"
 #		or
 #			has "event: angri byrds"
+#			has "Angri Byrds: offered"
 #			has "Wanderers Ap'arak 3: Pug: done"
 #	on offer
 #		event "Wanderer tribute Sabira Eseskrai"
@@ -213,6 +221,7 @@ event "Wanderer tribute Desi Seledrak"
 #------Temporarily negates hostility with Kor Mereti. He did say they were "fond" of you...--------
 
 mission "Angri Byrds: Mereti Fondness"
+	non-blocking
 	landing
 	invisible
 	repeat
@@ -232,7 +241,9 @@ mission "Angri Byrds License Revoked"
 	source
 		government "Wanderer"
 	to offer
-		has "event: angri byrds"
+		or
+			has "event: angri byrds"
+			has "Angri Byrds: offered"
 		not "Angri Byrds: Peace Through Strength 1: offered"
 	on offer
 		clear "license: Wanderer"
@@ -344,7 +355,9 @@ mission "Angri Byrds: Deploy Thunder Maker"
 	source
 		government "Wanderer"
 	to offer
-		has "event: angri byrds"
+		or
+			has "event: angri byrds"
+			has "Angri Byrds: offered"
 		or
 			has "Cartography: The Garden: done"
 			has "Cartography: The Map: The Garden: done"
@@ -390,20 +403,18 @@ mission "Angri Byrds: Peace Through Strength 1"
 		or
 			has "Wanderers: Sestor: Final: done"
 			has "Wanderers: Sestor: Final: Patched"
-		or
-			and
-				"tribute: Varu Tev'kei" > 0
-				"tribute: Kort Kehai" > 0
-				"tribute: Vara Rakak" > 0
-				"tribute: Tik Klai" > 0
-				"tribute: Vara Kehi'ki" > 0
-				"tribute: Vara K'chrai" > 0
-				"tribute: Varu Ek'lak'lai" > 0
-				"tribute: Var' Kayi" > 0
-				"tribute: Var' Roi" > 0
-				"tribute: Varu Tek'kai" > 0
-				"tribute: Spera Anatrusk" > 0
-				"tribute: Desi Seledrak" > 0
+		"tribute: Varu Tev'kei" > 0
+		"tribute: Kort Kehai" > 0
+		"tribute: Vara Rakak" > 0
+		"tribute: Tik Klai" > 0
+		"tribute: Vara Kehi'ki" > 0
+		"tribute: Vara K'chrai" > 0
+		"tribute: Varu Ek'lak'lai" > 0
+		"tribute: Var' Kayi" > 0
+		"tribute: Var' Roi" > 0
+		"tribute: Varu Tek'kai" > 0
+		"tribute: Spera Anatrusk" > 0
+		"tribute: Desi Seledrak" > 0
 	on offer
 		dialog
 			`You receive an invitation to a meeting on Desi Seledrak to discuss a cessation of hostilties between you and the Wanderers.`
@@ -461,6 +472,7 @@ event "Angri Byrds Peace Through Strength"
 
 
 mission "Angri Byrds: Peace Through Strength Patch"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -485,7 +497,7 @@ mission "Angri Byrds Still Angry 1"
 			`A Wanderer bumps into you. It looks at you with a fierce gaze and grumbles something in its native language before walking off.`
 				accept
 	on enter
-		dialog phrase "hostile wanderer"
+		dialog `Despite the peace agreement, it seems not every Wanderer is willing to forgive and forget your past hostilities.`
 	npc
 		government "Wanderer (Hostile)"
 		personality target waiting heroic coward
@@ -507,7 +519,6 @@ mission "Angri Byrds Still Angry 1"
 				"Hurricane (Tough)"
 				"Derecho (Tough)"
 				"Tempest (Heavy)"
-		dialog `Despite the peace agreement, it seems not every Wanderer is willing to forgive and forget your past hostilities.`
 
 mission "Angri Byrds Still Angry 2"
 	landing
@@ -519,6 +530,7 @@ mission "Angri Byrds Still Angry 2"
 		not attributes "uninhabited"
 	to offer
 		has "event: Wanderers Peace Through Strength"
+		has "Angri Byrds Still Angry 1: offered"
 		random < 1
 	on offer
 		conversation
@@ -583,6 +595,7 @@ mission "Angri Byrds Still Angry 2"
 
 
 mission "Angri Byrds: Add Wanderer Militia 1"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -654,6 +667,7 @@ event "add wanderer militia 1"
 			"Summer Leaf (Missile)"
 
 mission "Angri Byrds: Add Wanderer Militia 2"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -703,6 +717,7 @@ event "add wanderer militia 2"
 			"Summer Leaf (Missile)"
 
 mission "Angri Byrds: Add Wanderer Militia 3"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -723,6 +738,7 @@ event "add wanderer militia 3"
 			"Summer Leaf (Missile)" 2
 
 mission "Angri Byrds: Add Wanderer Militia 4"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -1384,7 +1400,7 @@ mission "Angri Byrds Surveillance 2"
 	on offer
 		conversation
 			scene "scene/scene-black cube"
-			`	As soon as you arrive, Iktat Rek approaches. "The [eyes, sensors] are working, but we have learned nothing new. Unfortunately, we cannot [reach, access] the Unfettered home systems. Please [explore, investigate] those systems and bring us back the data." There is a sense of urgency to his request. Without a Jump Drive, the Wanderers are unable to retrieve that data on their own.`
+			`	As soon as you arrive, Iktat Rek approaches. "The [eyes, sensors] are working, but we have learned nothing new. Unfortunately, we cannot [reach, access] the Unfettered home systems. Please [explore, investigate] those systems and bring us back the data." There is a sense of urgency to his request.`
 				accept
 	on visit
 		dialog phrase "generic waypoint on visit"
@@ -1456,9 +1472,6 @@ mission "Angri Byrds Surveillance Job"
 				"Armor Beetle (Ion Pulse)"
 				"Shield Beetle (Ion Pulse)" 2
 			variant
-				"Armor Beetle"
-				"Shield Beetle (Ion Pulse)" 2
-			variant
 				"Shield Beetle (Ion Pulse)" 2
 				"Solifuge (Komodo, Tracker)"
 				"Violin Spider (Pulse Repeater)" 6
@@ -1471,9 +1484,6 @@ mission "Angri Byrds Surveillance Job"
 			cargo 0
 			variant
 				"Armor Beetle (Ion Pulse)"
-				"Shield Beetle (Ion Pulse)" 2
-			variant
-				"Armor Beetle"
 				"Shield Beetle (Ion Pulse)" 2
 			variant
 				"Shield Beetle (Ion Pulse)" 2

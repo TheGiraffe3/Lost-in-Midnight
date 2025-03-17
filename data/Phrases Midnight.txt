@@ -11,153 +11,11 @@
 
 
 
-phrase "greek alphabet"
-	word
-		Alpha
-		Nu
-		Beta
-		Xi
-		Gamma
-		Omicron
-		Delta
-		Pi
-		Epsilon
-		Rho
-		Zeta
-		Sigma
-		Eta
-		Tau
-		Theta
-		Upsilon
-		Iota
-		Phi
-		Kappa
-		Chi
-		Lambda
-		Psi
-		Mu
-		Omega
-
-
-
-phrase "friendly civilian"
-	word
-		"Watch out for"
-		"Be on your guard against"
-		"Look out for"
-		"You're likely to be targeted by"
-		"You'll probably run into"
-		"Be wary of all those"
-		"You'll want to steer clear of"
-		"Try to avoid all the"
-		"Steer clear of all the"
-		"Make sure to avoid"
-		"Be on the lookout for"
-	word
-		" "
-	word
-		"Hackerz drones."
-		"Hacked drones."
-	word
-		" "
-	word
-		"Whatever you do, don't destroy them! They'll rob you blind without firing a shot."
-
-phrase "friendly civilian"
-	word
-		"If you think Radar Jammers are useless, you must not have been tortured by Stinger Missiles."
-
-
-phrase "friendly civilian"
-	word
-		"Do you think the Alphas actually existed? "
-		"You don't actually believe in the Alphas, do you? "
-		"There's no way the Alphas are real! "
-	word
-		"The stories about them are a government psyop "
-		"The historical records about them were made up "
-		"Everything written about them was fabricated "
-	word
-		"to deny the citizens access to gene tech research!"
-		"to cover up a war we had with hostile aliens!"
-		"to justify increased military spending."
-		"to discourage colonists from migrating to frontier worlds."
-
-phrase "friendly civilian"
-	word
-		"Garbage Scows are disgusting, "
-		"Garbage Scows are nasty, "
-	word
-		"but society would collapse without them."
-		"thankfully the smell can't escape the storage container."
-
-phrase "friendly civilian"
-	word
-		"The last Axel Sojen show was crazy. "
-		"The last Axel Sojen show was nuts. "
-		"The last Axel Sojen show was insane. "
-	word
-		"All of it is true! I'm sure of it."
-		"I wonder how much of what he says is true."
-		"I can't believe anyone believes the stuff he says."
-
-
-phrase "friendly pirate"
-	word
-		"I need to get to"
-		"I'm looking for"
-	word
-		" "
-	word
-		"Janus"
-		"Vesta"
-		"Lares"
-		"Rum Cellar"
-		"Naihe Qiao"
-		"Wang Xiang Tai"
-		"Thule"
-		"Smuggler's Den"
-		"Bloodsea"
-		"Greenrock"
-		"Albatross"
-		"Buccaneer Bay"
-		"Covert"
-		"Deadman's Cove"
-		"Freedom"
-		"Haven"
-		"Stormhold"
-		"Zenith"
-		"Mutiny"
-		"Trinket"
-		"New Tortuga"
-		"Alvorada"
-		"Bailey"
-		"Gagarin"
-		"Jakobsen"
-		"Mordente-Bridi"
-	word
-		", but my starmap doesn't list it."
-		"; do you know where I can find it?"
-		"; have you ever heard of it?"
-		"; that planet shouldn't be too far from here."
-		"; which hyperlane should I take to get there?"
-
-phrase "friendly pirate"
-	word
-		"Three pirates died on a rock. Three skeletons to open a lock."
-		"If you don't mind killing their crew, capturing ships is the best way to make money."
-		"Don't capture a ship if you don't want to deal with the hassle of escorting it back to a friendly spaceport."
-		"Sometimes I see ships with strange weapons on them. I wonder where they get their toys."
-		"Cross me and I'll destroy you quicker than Al Pundy!"
-
-phrase "hostile pirate"
-	word
-		"I'm going to destroy you quicker than Al Pundy!"
-
-phrase "test dummy"
-	word
-		"People die when they are killed."
-
+#################################
+#
+# phrases
+#
+#################################
 
 
 # Fake cargo package mission message
@@ -201,118 +59,6 @@ phrase "fake human package offer"
 	word
 		`"`
 
-
-
-# Refugee mission
-
-phrase "generic refugee offer"
-	word
-		`A local`
-		`A man`
-		`A resident of <origin>`
-		`A stranger`
-		`A woman`
-	word
-		` `
-	word
-		`appears from seemingly nowhere to ask,`
-		`approaches you and says,`
-		`flags you down and asks,`
-		`walks up to you and asks,`
-		`stops you and asks,`
-	word
-		` "`
-	word
-		`Hello Captain.`
-		`Excuse me, Captain.`
-		`Sorry to interrupt.`
-		`Hey there, Captain.`
-	word
-		` `
-	word
-		`The local pirates have been giving me a hard time.`
-		`My family was killed by pirates. I might be next.`
-		`Living on <origin> is dangerous.`
-		`Life is becoming unbearable on <origin>.`
-	word
-		` `
-	word
-		`I would like to seek a better life <destination>.`
-		`I'm trying to get away to <destination>.`
-		`I need transportation to <destination>.`
-		`I'm hoping to escape to <destination>.`
-	word
-		` `
-	word
-		`Are you able to help me?`
-		`Can you take me there?`
-		`Could you take me there?`
-		`Can you help me out with this?`
-	word
-		` I'll give you <payment> for the effort.`
-		` I'm willing to pay you <payment>.`
-		` I can afford to give you <payment>.`
-	word
-		`"`
-
-phrase "generic refugee dropoff payment"
-	word
-		`Your passenger is grateful for your assistance in escaping <origin>. You wish your <passengers> the best of luck on <planet>, and collect your payment of <payment>.`
-		`Your passenger is grateful for your assistance in escaping <origin>. You say farewell to your <passengers> on <planet>, and collect your payment of <payment>.`
-
-
-
-
-
-# names of Grave Digger ships
-
-phrase "grave diggers"
-	word
-		"Midnight"
-		"Underworld"
-		"Netherworld"
-		"Nightmare"
-		"Dark"
-		"Dire"
-		"Dusk"
-		"Grave"
-		"Grim"
-		"Night"
-		"Noir"
-		"Void"
-	word
-		" "
-	word
-		"Assassin"
-		"Predator"
-		"Hunter"
-		"Shadow"
-		"Reaper"
-		"Stalker"
-		"Skulker"
-
-phrase "grave diggers"
-	word
-		"Assassin "
-		"Predator "
-		"Hunter "
-		"Guardian "
-		"Shadow "
-		"Reaper"
-		"Stalker "
-		"Skulker "
-		"Harbinger "
-	word
-		"of "
-	word
-		"Darkness"
-		"Nighshade"
-		"Night"
-		"Nightfall"
-		"Shadows"
-		"the Underworld"
-		"the Netherworld"
-		"Midnight"
 
 # Hackerz destruction message
 
@@ -384,35 +130,199 @@ phrase "Hackerz LOL"
 		"You know that somewhere, out there, the Hackerz are laughing at you."
 
 
+# Refugee mission
 
-# hails from the Hackerz
+phrase "generic refugee offer"
+	word
+		`A local`
+		`A man`
+		`A resident of <origin>`
+		`A stranger`
+		`A woman`
+	word
+		` `
+	word
+		`appears from seemingly nowhere to ask,`
+		`approaches you and says,`
+		`flags you down and asks,`
+		`walks up to you and asks,`
+		`stops you and asks,`
+	word
+		` "`
+	word
+		`Hello Captain.`
+		`Excuse me, Captain.`
+		`Sorry to interrupt.`
+		`Hey there, Captain.`
+	word
+		` `
+	word
+		`The local pirates have been giving me a hard time.`
+		`My family was killed by pirates. I might be next.`
+		`Living on <origin> is dangerous.`
+		`Life is becoming unbearable on <origin>.`
+	word
+		` `
+	word
+		`I would like to seek a better life <destination>.`
+		`I'm trying to get away to <destination>.`
+		`I need transportation to <destination>.`
+		`I'm hoping to escape to <destination>.`
+	word
+		` `
+	word
+		`Are you able to help me?`
+		`Can you take me there?`
+		`Could you take me there?`
+		`Can you help me out with this?`
+	word
+		` I'll give you <payment> for the effort.`
+		` I'm willing to pay you <payment>.`
+		` I can afford to give you <payment>.`
+	word
+		`"`
 
-phrase "friendly drone"
+phrase "generic refugee dropoff payment"
 	word
-		"Beep boop beep."
-		"110100110100110100110100110100110100110100110100110100110100110100110100110100110100110100110100110100110100110100110100..."
-		"001011001011001011001011001011001011001011001011001011001011001011001011001011001011001011001011001011001011001011001011..."
+		`Your passenger is grateful for your assistance in escaping <origin>. You wish your <passengers> the best of luck on <planet>, and collect your payment of <payment>.`
+		`Your passenger is grateful for your assistance in escaping <origin>. You say farewell to your <passengers> on <planet>, and collect your payment of <payment>.`
 
-phrase "hostile hackerz"
+
+phrase "Rum Cellar Fight"
+		word
+			"A "
+		word
+			"Dock Worker"
+			"Starship Captain"
+			"Food Vendor"
+			"Bartender"
+		word
+			" exclaims, "
+		word
+			`"`
+		word
+			"Wow! "
+			"Uh oh! "
+			"I just heard "
+			"Word around the docking ring is "
+			"Unbelievable! "
+			"This can't be good. "
+		word
+			"Two crews from different pirate factions crossed paths. "
+			"Two crews from different pirate factions got into a dispute. "
+		word
+			"With their violent history, "
+			"Considering their past hostilities, "
+			"There's bad blood between them, so "
+		word
+			"a fight is likely. "
+			"I'd expect a fight to start up. "
+			"there's probably going to be a fight. "
+		word
+			"I hope this doesn't escalate. The last time it did, entire fleets were fighting."
+		word
+			`"`
+
+
+#################################
+#
+# names
+#
+#################################
+
+
+# asteroid names
+phrase "asteroid names"
+	phrase
+		"greek alphabet"
 	word
-		"By the time we're done we'll have routed your credits through multiple untraceable dummy accounts. No refunds!"
-		"The offial record will show that you were fined by the local government for smuggling illegal goods. Sux to be you I guess."
-		"We're just doing our civic duty to punish smugglers. It's super cereal!"
-		"Whatever dood. Go ahead and report us. You're the one carrying illegal cargo!"
-		"LOL! U got pwned."
-		"ROTFLMAO! U mad bro? U mad?"
-		
-phrase "hostile disabled hackerz"
+		" "
+	phrase
+		"greek alphabet"
 	word
-		"By the time we're done we'll have routed your credits through multiple untraceable dummy accounts. No refunds!"
-		"The offial record will show that you were fined by the local government for smuggling illegal goods. Sux to be you I guess."
-		"We're just doing our civic duty to punish smugglers. It's super cereal!"
-		"Whatever dood. Go ahead and report us. You're the one carrying illegal cargo!"
-		"Y so srs?"
+		" "
+	phrase
+		"greek alphabet"
+
+phrase "greek alphabet"
+	word
+		Alpha
+		Nu
+		Beta
+		Xi
+		Gamma
+		Omicron
+		Delta
+		Pi
+		Epsilon
+		Rho
+		Zeta
+		Sigma
+		Eta
+		Tau
+		Theta
+		Upsilon
+		Iota
+		Phi
+		Kappa
+		Chi
+		Lambda
+		Psi
+		Mu
+		Omega
+
+
+# names of Grave Digger ships
+phrase "grave diggers"
+	word
+		"Midnight"
+		"Underworld"
+		"Netherworld"
+		"Nightmare"
+		"Dark"
+		"Dire"
+		"Dusk"
+		"Grave"
+		"Grim"
+		"Night"
+		"Noir"
+		"Void"
+	word
+		" "
+	word
+		"Assassin"
+		"Predator"
+		"Hunter"
+		"Shadow"
+		"Reaper"
+		"Stalker"
+		"Skulker"
+
+phrase "grave diggers"
+	word
+		"Assassin "
+		"Predator "
+		"Hunter "
+		"Guardian "
+		"Shadow "
+		"Reaper"
+		"Stalker "
+		"Skulker "
+		"Harbinger "
+	word
+		"of "
+	word
+		"Darkness"
+		"Nighshade"
+		"Night"
+		"Nightfall"
+		"Shadows"
+		"the Underworld"
+		"the Netherworld"
+		"Midnight"
 
 
 # independent ship names
-
 phrase "independent"
 	phrase
 		"pirate"
@@ -421,7 +331,7 @@ phrase "independent"
 
 
 # Oathbreaker ships named after famous historical battles
-
+# Endless Sky doesn't recognize some special characters. Keeping the original name versions inactive in case this changes in the future.
 phrase "Oathbreaker"
 	word
 		"Alte Veste"
@@ -436,7 +346,8 @@ phrase "Oathbreaker"
 		"El Alamein"
 		"Fort Wagner"
 		"Hampton Roads"
-		"Hürtgen Forest"
+#		"Hürtgen Forest"
+		"Hurtgen Forest"
 		"Kerch Strait"
 		"Leyte Gulf"
 		"Little Bighorn"
@@ -472,7 +383,8 @@ phrase "Oathbreaker"
 		Bannockburn
 		Beersheba
 		Blenheim
-		Bóinne
+#		Bóinne
+		Boinne
 		Brandywine
 		Breitenfeld
 		Britain
@@ -522,7 +434,8 @@ phrase "Oathbreaker"
 		Lepanto
 		Liegnitz
 		Lumburg
-		Lützen
+#		Lützen
+		Lutzen
 		Lepanto
 		Mactan
 		Malacca
@@ -541,12 +454,14 @@ phrase "Oathbreaker"
 		Nemea
 		Newbury
 		Niemen
-		Nördlingen
+#		Nördlingen
+		Nordlingen
 		Novara
 		Nuremberg
 		Okinawa
 		Oriskany
-		Orléans
+#		Orléans
+		Orleans
 		Oudenaarde
 		Panipat
 		Peleliu
@@ -589,194 +504,13 @@ phrase "Oathbreaker"
 		Yultong
 		Zurich
 
-
 phrase "Oathbreaker fighter"
 	word
-		"Avenger "
 		"Breaker "
-		"Punisher "
 	phrase
-		"one to twelve"
-
-
-# Oathbreaker hails
-
-phrase "disabled oathbreaker"
-	word
-		"So the time has come to join "
-		"I look forward to rejoining "
-		"I did my best to avenge "
-		"I have no fear, for I will soon see "
-		"I fought with courage to earn the right to join "
-	word
-		"my "
-	word
-		"father "
-		"mother "
-		"brother "
-		"sister "
-		"cousin "
-	word
-		"who is in "
-	word
-		"heaven."
-		"the afterlife."
-
-phrase "friendly oathbreaker"
-	word
-		"I wonder if "
-	word
-		"our allies in "
-		"our operations in "
-	word
-		"the north "
-		"the core "
-		"the dirt belt "
-		"the rim "
-	word
-		"are doing well."
-		"were successful."
-
-phrase "friendly oathbreaker"
-	word
-		"Captain Arnold Benedict "
-	word
-		"is "
-	word
-		"a great "
-		"an amazing "
-		"an awe inspiring "
-		"an inspirational "
-	word	
-		"leader."
-		"role model."
-		"hero."
-		"strategist."
-		"tactician."
-
-phrase "hostile oathbreaker"
-	word
-		"My "
-	word
-		"father "
-		"mother "
-		"brother "
-		"sister "
-		"cousin "
-	word
-		"will "
-		"shall "
-	word
-		"be avenged!"
-
-phrase "hostile oathbreaker"
-	word
-		"Free Worlds "
-		"Free Worlder "
-	word
-		"scum "
-		"rebels "
-		"excrement "
-		"garbage "
-	word
-		"will "
-	word
-		"not escape justice!"
-		"be crushed!"
-		"suffer my wrath!"
-		"die!"
+		"digit"
+	phrase
+		"digit"
 
 
 
-
-# Elite bounty hunters searching for the Rolling Thunder
-
-phrase "storm seeker"
-	word
-		"No sign of the Rolling Thunder here."
-		"We're still searching for the Rolling Thunder."
-		"We've had no luck tracking down the Rolling Thunder."
-		"Do you have any leads on the Rolling Thunder?"
-		"Any idea where the Rolling Thunder might be hiding?"
-		"We haven't found any clues regarding the Rolling Thunder."
-
-# Nemesis hails
-
-phrase "hostile nemesis"
-	word
-		"<first> <last>? You don't seem as impressive as the stories say."
-		"Captain <last>? I was not expecting to run into you here. No matter. I won't let you interfere with my plans."
-		"I have goals. And allowing you to live isn't one of them."
-		"Nice ship. Where did you steal it?"
-		"Those are some nice outfits. Perhaps I'll salvage what's left of them once I've destroyed your ship."
-		"What are you doing here? Never mind. I can't allow potential witnesses to escape."
-		"You don't belong here. And in a minute what remains of you won't belong anywhere."
-
-phrase "hostile disabled nemesis"
-	word
-		"Curse you captain."
-		"Do you seriously expect me to surrender?"
-		"Well fought captain."
-		"What do you want?"
-	word
-		" "
-	word
-		"Don't be shy! Come on over!"
-		"I'm not surrendering."
-		"Shall we meet face to face?"
-		"This battle's not over!"
-	word
-		" "
-	word
-		"I'm looking forward to entertaining unwelcome guests!"
-		"If you board this ship, I'll make sure you won't leave it alive." 
-		"My crew and I will be ready for you."
-		"You won't take my ship without a fight!"
-
-
-
-phrase "Rum Cellar Fight"
-		word
-			"A "
-		word
-			"Dock Worker"
-			"Starship Captain"
-			"Food Vendor"
-			"Bartender"
-		word
-			" exclaims, "
-		word
-			`"`
-		word
-			"Wow! "
-			"Uh oh! "
-			"I just heard "
-			"Word around the docking ring is "
-			"Unbelievable! "
-			"This can't be good. "
-		word
-			"Two crews from different pirate factions crossed paths. "
-			"Two crews from different pirate factions got into a dispute. "
-		word
-			"With their violent history, "
-			"Considering their past hostilities, "
-			"There's bad blood between them, so "
-		word
-			"a fight is likely. "
-			"I'd expect a fight to start up. "
-			"there's probably going to be a fight. "
-		word
-			"I hope this doesn't escalate. The last time it did, entire fleets were fighting."
-		word
-			`"`
-
-
-
-phrase "hostile unfettered"
-	word
-		`"`
-	word
-		"MORE SACRIFICES FOR THE ACORN GOD!"
-		"I'll crack your nuts!"
-	word
-		`"`

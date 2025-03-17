@@ -14,6 +14,7 @@
 
 
 mission "Inferno Dragon: Inferno Rocket Fleets"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -26,17 +27,20 @@ mission "Inferno Dragon: Inferno Rocket Fleets"
 		system Merak
 		personality waiting staying marked vindictive
 			confusion 10
-		ship "Cruiser (Inferno Rockets)" "Inferno Dragon"
-		ship "Combat Drone" "Red Dragon 1"
-		ship "Combat Drone" "Red Dragon 2"
-		ship "Combat Drone" "Red Dragon 3"
-		ship "Combat Drone" "Red Dragon 4"
-		ship "Gunboat (Inferno Rockets)" "Dragon's Guard"
-		ship "Rainmaker (Inferno Rockets)" "Dragon's Sentry"
-		ship "Rainmaker (Inferno Rockets)" "Dragon's Sentnel"
+		ship "Marauder Cruiser (Inferno Rocket)" "Inferno Dragon"
+		ship "Lance (Inferno Rocket)" "Red Dragon 1"
+		ship "Lance (Inferno Rocket)" "Red Dragon 2"
 		on kill
 			fail "Inferno Dragon: Pirate Dragons"
 			fail
+	npc
+		government "Independent (Killable)"
+		system Merak
+		personality waiting staying marked vindictive
+			confusion 10
+		ship "Gunboat (Inferno Rockets)" "Dragon's Guard"
+		ship "Rainmaker (Inferno Rockets)" "Dragon's Sentry"
+		ship "Rainmaker (Inferno Rockets)" "Dragon's Sentinel"
 	npc
 		government "Independent (Killable)"
 		system Sargas
@@ -240,11 +244,12 @@ event "inferno rocket fleets"
 			"Raven (Afterburner)"
 		add variant 1
 			"Aerie"
-			"Dagger" 2
+			"Dagger" 4
 			"Corvette (Inferno Rockets)"
 		add variant 1
 			"Aerie" 2
 			"Dagger" 4
+			"Shuttle Pod" 4
 			"Firebird (Inferno Rockets)"
 		add variant 1
 			"Leviathan (Inferno Rockets)"
@@ -380,6 +385,7 @@ event "inferno rocket fleets"
 			"Patrolboat (Turbo Blaster)"
 
 mission "Midnight Inferno Rocket CCOR Update"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -435,9 +441,74 @@ event "midnight inferno rocket ccor update"
 			"Missileboat (Inferno Rockets)"
 			"Patrolboat (Turbo Blaster)"
 
+mission "Midnight Inferno Rocket Mark II Update"
+	non-blocking
+	landing
+	invisible
+	to offer
+		has "event: inferno rocket fleets"
+		has "event: flamethrower available"
+	on offer
+		event "midnight inferno rocket mark ii update"
+		fail
+
+event "midnight inferno rocket mark ii update"
+	fleet "Large Southern Pirates"
+		add variant 1
+			"Osprey (Inferno Rockets Mark II)"
+			"Fury (Inferno Rockets)"
+		add variant 1
+			"Osprey (Inferno Rockets Mark II)"
+			"Sparrow (Limit Break)"
+		add variant 1
+			"Bastion (Inferno Rockets Mark II)"
+		add variant 1
+			"Falcon (Inferno Rockets Mark II)"
+		add variant 1
+			"Falcon (Inferno Rockets Mark II)"
+			"Sparrow (Modified Blaster)" 2
+			"Sparrow (Limit Break)"
+	fleet "Large Core Pirates"
+		add variant 1
+			"Falcon (Inferno Rockets Mark II)"
+		add variant 1
+			"Firebird (Inferno Rockets Mark II)"
+	fleet "Large Northern Pirates"
+		add variant 1
+			"Firebird (Inferno Rockets Mark II)"
+		add variant 1
+			"Firebird (Inferno Rockets Mark II)"
+			"Corvette"
+		add variant 1
+			"Firebird (Inferno Rockets Mark II)"
+			"Fury"
+		add variant 1
+			"Firebird (Inferno Rockets Mark II)"
+			"Berserker (Inferno Rockets)"
+			"Berserker"
+		add variant 1
+			"Aerie" 2
+			"Dagger" 4
+			"Shuttle Pod" 4
+			"Firebird (Inferno Rockets Mark II)"
+		add variant 1
+			"Leviathan (Laser)"
+			"Firebird (Inferno Rockets Mark II)"
+	fleet "pirate raid"
+		add variant 1
+			"Falcon (Inferno Rockets Mark II)"
+		add variant 1
+			"Firebird (Inferno Rockets Mark II)"
+		add variant 1
+			"Firebird (Inferno Rockets Mark II)"
+			"Corvette"
+		add variant 1
+			"Firebird (Inferno Rockets Mark II)"
+			"Fury"
 
 
 mission "Inferno Dragon: Diyu Dragon"
+	non-blocking
 	landing
 	invisible
 	source "Wang Xiang Tai"
@@ -448,7 +519,7 @@ mission "Inferno Dragon: Diyu Dragon"
 		system Diyu
 		personality waiting staying marked vindictive
 			confusion 10
-		ship "Frigate (Inferno Rockets)" "Dragon's Fangs"
+		ship "Marauder Frigate" "Dragon's Fangs"
 
 
 mission "Inferno Dragon: New China"
@@ -519,8 +590,8 @@ mission "Inferno Dragon: Intro"
 				decline
 
 
-
 mission "Inferno Dragon: Pirate Dragons"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -594,6 +665,7 @@ mission "Inferno Dragon: Six Piece Clue"
 	invisible
 	minor
 	source
+		government "Republic" "Free Worlds" "Syndicate" "Pirate" "Neutral" "Independent"
 		attributes "frontier"
 		not attributes "pirate"
 	to offer
@@ -643,6 +715,7 @@ mission "Inferno Dragon: Six Piece Clue"
 				`	"Pairs?"`
 				`	"How?"`
 			action
+				"reputation: Independent" ++
 				log "Inferno Dragon Notes: The six lines of the poem can be divided into three pairs. One pair related to the sky, one pair related to the ocean, and one pair related to the earth."
 			`"Like this:"`
 			``
@@ -661,7 +734,6 @@ mission "Inferno Dragon: Six Piece Clue"
 					decline
 	on defer
 		set "Randomize Inferno Dragon: Six Piece Clue"
-
 
 
 outfitter "Inferno Rockets"
@@ -712,6 +784,9 @@ mission "Inferno Dragon: Inferno Outfitters"
 					goto wrong
 				`	"The Inferno Dragon's presence causes all to tremble."`
 					goto wrong
+			action
+				"reputation: Independent" ++
+				"Midnight Market" ++
 			`The outfitter clerk says, "We're out of stock on Inferno Rockets at the moment, but a fresh supply should be ready by tomorrow."`
 				decline
 			
@@ -722,6 +797,7 @@ mission "Inferno Dragon: Inferno Outfitters"
 		set "Randomize Inferno Dragon: Inferno Outfitters"
 	on decline
 		event "inferno rockets at pirate outfitters"
+		set "license: Inferno Dragon"
 		set "inferno rocket pod patched"
 		log "Inferno Dragon Notes: The Inferno Dragon poem is a password that gives access to Inferno Rockets at some outfitters."
 	on enter
@@ -785,6 +861,7 @@ event "inferno rockets at pirate outfitters"
 		add outfitter "Inferno Rockets"
 
 mission "Inferno Dragon: Inferno Rocket Pod Patch"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -797,6 +874,18 @@ mission "Inferno Dragon: Inferno Rocket Pod Patch"
 event "inferno rocket pod patch"
 	outfitter "Pirate Advanced"
 		add "Inferno Rocket Pod"
+
+mission "Inferno Dragon License Patch"
+	non-blocking
+	landing
+	invisible
+	to offer
+		has "event: inferno rockets at pirate outfitters"
+		not "license: Inferno Dragon"
+	on offer
+		set "license: Inferno Dragon"
+		fail
+
 
 phrase "red dragon"
 	phrase
@@ -888,21 +977,99 @@ mission "Inferno Dragon: Dragon's Hoard"
 				`	(Ignore it.)`
 					defer
 			`As you explore the cave, you find some worked stone. On the stone are engraved letters you can read! The words look familiar. It almost seems as if the stones with words can be pushed into the wall...`
+			label options
 			choice
 				`	(Seems risky. Maybe come back another day.)`
+					to display
+						and
+							not "inferno dragon treasure: earth"
+							not "inferno dragon treasure: ocean"
+							not "inferno dragon treasure: sky"
 					defer
-				`	The Inferno Dragon's wings spread across the endless sky.`
-					goto wings
-				`	The Inferno Dragon's ambition reaches the heavens.`
-					goto wrong
-				`	The Inferno Dragon's breath boils the boundless ocean.`
-					goto breath
-				`	The Inferno Dragon's thirst can never be quenched.`
-					goto wrong
+
 				`	The Inferno Dragon's claws ravage the timeless earth.`
-					goto claws
+					to display
+						not "inferno dragon treasure: earth"
+					goto earth
+
 				`	The Inferno Dragon's presence causes all to tremble.`
+					to display
+						not "inferno dragon treasure: earth"
 					goto wrong
+
+				`	The Inferno Dragon's presence causes all to tremble.`
+					to display
+						has "inferno dragon treasure: earth"
+						not "inferno dragon treasure: tremble"
+					goto tremble
+
+				`	The Inferno Dragon's breath boils the boundless ocean.`
+					to display
+						not "inferno dragon treasure: ocean"
+					goto ocean
+
+				`	The Inferno Dragon's thirst can never be quenched.`
+					to display
+						not "inferno dragon treasure: ocean"
+					goto wrong
+
+				`	The Inferno Dragon's thirst can never be quenched.`
+					to display
+						has "inferno dragon treasure: ocean"
+						not "inferno dragon treasure: quenched"
+					goto quenched
+
+				`	The Inferno Dragon's wings spread across the endless sky.`
+					to display
+						not "inferno dragon treasure: sky"
+					goto sky
+
+				`	The Inferno Dragon's ambition reaches the heavens.`
+					to display
+						not "inferno dragon treasure: sky"
+					goto wrong
+
+				`	The Inferno Dragon's ambition reaches the heavens.`
+					to display
+						has "inferno dragon treasure: sky"
+						not "inferno dragon treasure: heavens"
+					goto heavens
+
+			label earth
+			action
+				set "inferno dragon treasure: earth"
+			``
+				goto push
+
+			label tremble
+			action
+				set "inferno dragon treasure: tremble"
+			``
+				goto push
+
+			label ocean
+			action
+				set "inferno dragon treasure: ocean"
+			``
+				goto push
+
+			label quenched
+			action
+				set "inferno dragon treasure: quenched"
+			``
+				goto push
+
+			label sky
+			action
+				set "inferno dragon treasure: sky"
+			``
+				goto push
+
+			label heavens
+			action
+				set "inferno dragon treasure: heavens"
+			``
+				goto push
 
 			label wrong
 			`	Suddenly the ground starts shaking. It's a cave in!`
@@ -917,189 +1084,36 @@ mission "Inferno Dragon: Dragon's Hoard"
 			scene "asteroid/large rock/spin"
 			`	You safely escape the cave in, but whatever was hidden in there is lost for all eternity.`
 				decline
-			
-			label wings
+
+			label push
+			branch treasure
+				has "inferno dragon treasure: tremble"
+				has "inferno dragon treasure: quenched"
+				has "inferno dragon treasure: heavens"
 			`	You push the stone in until it suddenly stops with an audible "click". Nothing else happens.`
-			choice
-				`	The Inferno Dragon's ambition reaches the heavens.`
-					goto ambition
-				`	The Inferno Dragon's breath boils the boundless ocean.`
-					goto wrong
-				`	The Inferno Dragon's thirst can never be quenched.`
-					goto wrong
-				`	The Inferno Dragon's claws ravage the timeless earth.`
-					goto wrong
-				`	The Inferno Dragon's presence causes all to tremble.`
-					goto wrong
-			label ambition
-			`	You push the stone in until it suddenly stops with an audible "click". Nothing else happens.`
-			choice
-				`	The Inferno Dragon's breath boils the boundless ocean.`
-					goto "wings breath"
-				`	The Inferno Dragon's thirst can never be quenched.`
-					goto wrong
-				`	The Inferno Dragon's claws ravage the timeless earth.`
-					goto "wings claws"
-				`	The Inferno Dragon's presence causes all to tremble.`
-					goto wrong
-			label "wings breath"
-			`	You push the stone in until it suddenly stops with an audible "click". Nothing else happens.`
-			choice
-				`	The Inferno Dragon's thirst can never be quenched.`
-					goto "wings thirst"
-				`	The Inferno Dragon's claws ravage the timeless earth.`
-					goto wrong
-				`	The Inferno Dragon's presence causes all to tremble.`
-					goto wrong
-			label "wings thirst"
-			`	You push the stone in until it suddenly stops with an audible "click". Nothing else happens.`
-			choice
-				`	The Inferno Dragon's claws ravage the timeless earth.`
-					goto "wings breath claws"
-				`	The Inferno Dragon's presence causes all to tremble.`
-					goto wrong
-			label "wings breath claws"
-			`	You push the stone in until it suddenly stops with an audible "click". Nothing else happens.`
-			choice
-				`	The Inferno Dragon's presence causes all to tremble.`
+				goto options
+
+			label treasure
 			scene "outfit/treasure"
-			`	You push the stone in until it suddenly stops with an audible "click". A hidden door slides open, revealing a secret treasure trove! It takes several trips to haul it all back to your ship...`
-				accept
-				
-			label "wings claws"
-			`	You push the stone in until it suddenly stops with an audible "click". Nothing else happens.`
-			choice
-				`	The Inferno Dragon's breath boils the boundless ocean.`
-					goto wrong
-				`	The Inferno Dragon's thirst can never be quenched.`
-					goto wrong
-				`	The Inferno Dragon's presence causes all to tremble.`
-					goto "wings presence"
-			label "wings presence"
-			`	You push the stone in until it suddenly stops with an audible "click". Nothing else happens.`
-			choice
-				`	The Inferno Dragon's breath boils the boundless ocean.`
-					goto "wings claws breath"
-				`	The Inferno Dragon's thirst can never be quenched.`
-					goto wrong
-			label "wings claws breath"
-			`	You push the stone in until it suddenly stops with an audible "click". Nothing else happens.`
-			choice
-				`	The Inferno Dragon's thirst can never be quenched.`
-			scene "outfit/treasure"
-			`	You push the stone in until it suddenly stops with an audible "click". A hidden door slides open, revealing a secret treasure trove! It takes several trips to haul it all back to your ship...`
+			`	You push the stone in until it suddenly stops with an audible "click". After a moment of silence, you hear the sound of stone grinding on stone. A hidden door slides open, revealing a secret treasure trove! It takes several trips to haul it all back to your ship...`
 				accept
 
-			label breath
-			`	You push the stone in until it suddenly stops with an audible "click". Nothing else happens.`
-			choice
-				`	The Inferno Dragon's wings spread across the endless sky.`
-					goto wrong
-				`	The Inferno Dragon's ambition reaches the heavens.`
-					goto wrong
-				`	The Inferno Dragon's thirst can never be quenched.`
-					goto thirst
-				`	The Inferno Dragon's claws ravage the timeless earth.`
-					goto wrong
-				`	The Inferno Dragon's presence causes all to tremble.`
-					goto wrong
-			label thirst
-			`	You push the stone in until it suddenly stops with an audible "click". Nothing else happens.`
-			choice
-				`	The Inferno Dragon's wings spread across the endless sky.`
-					goto "breath wings"
-				`	The Inferno Dragon's ambition reaches the heavens.`
-					goto wrong
-				`	The Inferno Dragon's claws ravage the timeless earth.`
-					goto "breath claws"
-				`	The Inferno Dragon's presence causes all to tremble.`
-					goto wrong
-			label "breath wings"
-			`	You push the stone in until it suddenly stops with an audible "click". Nothing else happens.`
-			choice
-				`	The Inferno Dragon's ambition reaches the heavens.`
-					goto "wings thirst"
-				`	The Inferno Dragon's claws ravage the timeless earth.`
-					goto wrong
-				`	The Inferno Dragon's presence causes all to tremble.`
-					goto wrong
-			label "breath claws"
-			`	You push the stone in until it suddenly stops with an audible "click". Nothing else happens.`
-			choice
-				`	The Inferno Dragon's wings spread across the endless sky.`
-					goto wrong
-				`	The Inferno Dragon's ambition reaches the heavens.`
-					goto wrong
-				`	The Inferno Dragon's presence causes all to tremble.`
-					goto "breath presence"
-			label "breath presence"
-			`	You push the stone in until it suddenly stops with an audible "click". Nothing else happens.`
-			choice
-				`	The Inferno Dragon's wings spread across the endless sky.`
-					goto "breath claws wings"
-				`	The Inferno Dragon's ambition reaches the heavens.`
-					goto wrong
-			label "breath claws wings"
-			`	You push the stone in until it suddenly stops with an audible "click". Nothing else happens.`
-			choice
-				`	The Inferno Dragon's ambition reaches the heavens.`
-			scene "outfit/treasure"
-			`	You push the stone in until it suddenly stops with an audible "click". A hidden door slides open, revealing a secret treasure trove! It takes several trips to haul it all back to your ship...`
-				accept
-
-			label claws
-			`	You push the stone in until it suddenly stops with an audible "click". Nothing else happens.`
-			choice
-				`	The Inferno Dragon's wings spread across the endless sky.`
-					goto wrong
-				`	The Inferno Dragon's ambition reaches the heavens.`
-					goto wrong
-				`	The Inferno Dragon's breath boils the boundless ocean.`
-					goto wrong
-				`	The Inferno Dragon's thirst can never be quenched.`
-					goto wrong
-				`	The Inferno Dragon's presence causes all to tremble.`
-					goto presence
-			label presence
-			`	You push the stone in until it suddenly stops with an audible "click". Nothing else happens.`
-			choice
-				`	The Inferno Dragon's wings spread across the endless sky.`
-					goto "claws wings"
-				`	The Inferno Dragon's ambition reaches the heavens.`
-					goto wrong
-				`	The Inferno Dragon's breath boils the boundless ocean.`
-					goto "claws breath"
-				`	The Inferno Dragon's thirst can never be quenched.`
-					goto wrong
-			label "claws wings"
-			`	You push the stone in until it suddenly stops with an audible "click". Nothing else happens.`
-			choice
-				`	The Inferno Dragon's ambition reaches the heavens.`
-					goto "wings presence"
-				`	The Inferno Dragon's breath boils the boundless ocean.`
-					goto wrong
-				`	The Inferno Dragon's thirst can never be quenched.`
-					goto wrong
-
-			label "claws breath"
-			`	You push the stone in until it suddenly stops with an audible "click". Nothing else happens.`
-			choice
-				`	The Inferno Dragon's wings spread across the endless sky.`
-					goto wrong
-				`	The Inferno Dragon's ambition reaches the heavens.`
-					goto wrong
-				`	The Inferno Dragon's thirst can never be quenched.`
-					goto "breath presence"
 	on accept
 		outfit "Mysterious Treasure" 1
 		outfit "Platinum" 10
 		outfit "Gold" 20
 		outfit "Silver" 30
 		outfit "Copper" 40
-	
+		clear "inferno dragon treasure: earth"
+		clear "inferno dragon treasure: tremble"
+		clear "inferno dragon treasure: ocean"
+		clear "inferno dragon treasure: quenched"
+		clear "inferno dragon treasure: sky"
+		clear "inferno dragon treasure: heavens"
+
 	on enter
 		conversation
-			scene "thumbnail/frigate"
+			scene "thumbnail/marauder frigate-thumb"
 			`That looks like a navy frigate, but you have a hunch the ones piloting it aren't here to clean up piracy...`
 			`They hail you: "We're with the Red Dragons. Our security system alerted us that someone was stupid enough to make an unauthorized entry at the Lares vault. Looks like we caught a thief trying to escape with our treasure. You'll burn for that!`
 
@@ -1121,7 +1135,6 @@ mission "Inferno Dragon: Dragon's Hoard"
 		system Limen
 		personality target entering heroic unconstrained nemesis
 			confusion 20
-		ship "Frigate (Inferno Rockets)" "Dragon's Avenger"
 		fleet
 			names "red dragon"
 			cargo 1
@@ -1147,6 +1160,7 @@ mission "Inferno Dragon: Dragon's Hoard"
 		government "Pirate"
 		personality target waiting heroic unconstrained nemesis
 			confusion 20
+		ship "Marauder Frigate" "Dragon's Avenger"
 		fleet
 			names "red dragon"
 			cargo 1
@@ -1236,7 +1250,6 @@ mission "Holiday: New Year's Fireworks"
 	on complete
 		payment
 		dialog `You receive <payment> for delivering the <cargo> to <planet>. The festival organizer invites you to watch the show, but you inform them that you've already seen some new year's fireworks.`
-
 
 
 mission "Inferno Dragon: FW Bounty [0]"
@@ -1336,6 +1349,33 @@ mission "Inferno Dragon: FW Bounty [1]"
 		dialog `You hand the scanner data of the <npc> to the Free Worlds government and they pay you <payment> for stopping that shipment.`
 
 
+mission "Inferno Dragon: Dragon Lord"
+	non-blocking
+	landing
+	invisible
+	to offer
+		has "main plot completed"
+	npc kill
+		government "Independent (Killable)"
+		system Diyu
+		personality waiting staying marked vindictive
+			confusion 10
+		ship "Marauder Carrier (Inferno Rocket)" "Dragon Lord"
+		ship "Lance (Inferno Rocket)" "Red Dragon 1"
+		ship "Lance (Inferno Rocket)" "Red Dragon 2"
+		ship "Lance (Inferno Rocket)" "Red Dragon 3"
+		ship "Lance (Inferno Rocket)" "Red Dragon 4"
+		ship "Combat Drone (Turbo Blaster)" "Dragon Fire 1"
+		ship "Combat Drone (Turbo Blaster)" "Dragon Fire 2"
+		ship "Combat Drone (Turbo Blaster)" "Dragon Fire 3"
+		ship "Combat Drone (Turbo Blaster)" "Dragon Fire 4"
+		ship "Combat Drone (Turbo Blaster)" "Dragon Fire 5"
+		ship "Combat Drone (Turbo Blaster)" "Dragon Fire 6"
+		on kill
+			fail "Inferno Dragon: Pirate Dragons"
+			fail
+
+
 
 ######################
 #
@@ -1344,6 +1384,7 @@ mission "Inferno Dragon: FW Bounty [1]"
 ######################
 
 mission "Inferno Rockets Appear Patch"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -2009,10 +2050,12 @@ event "inferno rockets appear patch"
 			"Sparrow"
 		variant 1
 			"Aerie"
-			"Lance" 2
+			"Lance" 3
+			"Dagger"
 		variant 1
 			"Aerie"
-			"Dagger" 2
+			"Lance"
+			"Dagger" 3
 		variant 3
 			"Headhunter"
 		variant 2
@@ -2105,22 +2148,22 @@ event "inferno rockets appear patch"
 			"Headhunter (Strike)"
 		variant 1
 			"Aerie"
-			"Dagger" 2
+			"Dagger" 4
 			"Corvette"
 		variant 1
 			"Aerie"
-			"Dagger" 2
+			"Dagger" 4
 			"Raven"
 		variant 2
 			"Aerie" 2
-			"Dagger" 4
+			"Dagger" 8
 		variant 2
 			"Aerie"
-			"Dagger" 2
+			"Dagger" 4
 			"Corvette (Missile)"
 		variant 1
 			"Aerie" 2
-			"Dagger" 4
+			"Dagger" 8
 			"Firebird"
 		variant 2
 			"Mule"
@@ -2210,11 +2253,11 @@ event "inferno rockets appear patch"
 			"Raven (Afterburner)"
 		variant 1
 			"Aerie"
-			"Dagger" 2
+			"Dagger" 4
 			"Corvette (Inferno Rockets)"
 		variant 1
 			"Aerie" 2
-			"Dagger" 4
+			"Dagger" 8
 			"Firebird (Inferno Rockets)"
 		variant 1
 			"Leviathan (Inferno Rockets)"
@@ -2452,6 +2495,7 @@ event "inferno rockets appear patch"
 			"Berserker (Inferno Rockets)"
 
 mission "Inferno Dragon: Inferno Rockets Appear Patch"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -2463,22 +2507,28 @@ mission "Inferno Dragon: Inferno Rockets Appear Patch"
 		system Merak
 		personality waiting staying marked vindictive
 			confusion 10
-		ship "Cruiser (Inferno Rockets)" "Inferno Dragon"
-		ship "Combat Drone" "Red Dragon 1"
-		ship "Combat Drone" "Red Dragon 2"
-		ship "Combat Drone" "Red Dragon 3"
-		ship "Combat Drone" "Red Dragon 4"
-		ship "Fury (Inferno Rockets)" "Dragon's Guard"
-		ship "Hawk (Inferno Rockets)" "Dragon's Sentry"
-		ship "Berserker (Inferno Rockets)" "Dragon's Sentnel"
-	npc kill
+		ship "Marauder Cruiser (Inferno Rocket)" "Inferno Dragon"
+		ship "Lance (Inferno Rocket)" "Red Dragon 1"
+		ship "Lance (Inferno Rocket)" "Red Dragon 2"
+		on kill
+			fail "Inferno Dragon: Pirate Dragons"
+			fail
+	npc
+		government "Independent (Killable)"
+		system Merak
+		personality waiting staying marked vindictive
+			confusion 10
+		ship "Gunboat (Inferno Rockets)" "Dragon's Guard"
+		ship "Rainmaker (Inferno Rockets)" "Dragon's Sentry"
+		ship "Rainmaker (Inferno Rockets)" "Dragon's Sentinel"
+	npc
 		government "Independent (Killable)"
 		system Sargas
 		personality waiting staying marked vindictive
 			confusion 10
-		ship "Frigate (Inferno Rockets)" "Dragon's Claws"
-		ship "Frigate (Inferno Rockets)" "Dragon's Breath"
-		ship "Frigate (Inferno Rockets)" "Dragon's Wings"
+		ship "Gunboat (Inferno Rockets)" "Dragon's Claws"
+		ship "Rainmaker (Inferno Rockets)" "Dragon's Breath"
+		ship "Rainmaker (Inferno Rockets)" "Dragon's Wings"
 
 mission "Inferno Dragon: Inferno Rockets Appear"
 	invisible

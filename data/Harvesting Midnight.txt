@@ -17,6 +17,7 @@ minable "pyrite"
 	hull 1170
 	"random hull" 230
 	payload "Pyrite" 45
+		"toughness" 8000
 	explode "smoke" 25
 	explode "bolide" 25
 	explode "asteroid crunch small"
@@ -34,9 +35,11 @@ outfit "Pyrite"
 
 minable "quantumium"
 	sprite "asteroid/quantumium/spin"
-	hull 800
-	"random hull" 150
-	payload "Quantumium" 5
+	hull 900
+	"random hull" 200
+	payload "Quantumium" 1
+		"drop rate" 1
+		"toughness" 1377500
 	explode "smoke" 20
 	explode "bolide" 20
 	explode "asteroid crunch small"
@@ -47,7 +50,7 @@ outfit "Quantumium"
 	cost 6000
 	thumbnail "outfit/quantumium"
 	"flotsam sprite" "effect/flotsam keystone"
-	"mass" 0.2
+	"mass" 1
 	"outfit space" -2
 	"quantum keystone" 1
 	description "The raw ore used to make Quantum Keystones. Since it has not been processed, it occupies more space than a Quantum Keystone does."
@@ -56,7 +59,9 @@ minable "fossil"
 	sprite "asteroid/fossil/spin"
 	hull 400
 	"random hull" 100
-	payload "Fossil" 5
+	payload "Fossil" 1
+		"drop rate" 1
+		"toughness" 1377500
 	explode "smoke" 20
 	explode "bolide" 20
 	explode "asteroid crunch small"
@@ -72,10 +77,14 @@ outfit "Fossil"
 	description "This is a rare specimen. You can install it on your ship to keep it from getting mixed in with the regular cargo."
 
 minable "treasure"
+	"display name" "Buried"
+	noun "Treasure"
 	sprite "asteroid/small rock/spin"
-	hull 10000
+	hull 9000
 	"random hull" 2000
-	payload "Mysterious Treasure" 5
+	payload "Mysterious Treasure" 1
+		"drop rate" 1
+		"toughness" 1377500
 	explode "smoke" 20
 	explode "bolide" 20
 	explode "asteroid crunch small"
@@ -107,30 +116,41 @@ outfit "Alien Artifact"
 
 minable "metallic"
 	sprite "asteroid/metallic/spin"
-	hull 2400
-	"random hull" 500
+	hull 2160
+	"random hull" 480
 	payload "Metallic Asteroid" 30
-	explode "smoke" 40
-	explode "bolide" 40
+		"toughness" 10700
+	explode "smoke" 20
+	explode "bolide" 20
 	explode "asteroid crunch small"
 
 # deprecated "metallic"
 minable "metallic asteroid"
+	"display name" "Metallic"
+	noun "Asteroid"
 	sprite "asteroid/metallic/spin"
-	hull 2400
-	"random hull" 500
+	hull 2160
+	"random hull" 480
 	payload "Metallic Asteroid" 30
-	explode "smoke" 40
-	explode "bolide" 40
+		"toughness" 10700
+	explode "smoke" 20
+	explode "bolide" 20
 	explode "asteroid crunch small"
 
 minable "space junk"
+	"display name" "Space"
+	noun "Junk"
 	sprite "asteroid/space junk/spin"
 	hull 200
 	"random hull" 50
 	payload "Space Junk" 20
+		"toughness" 900
 	payload "Supercapacitor" 3
+		"toughness" 1800
 	payload "KP-6 Photovoltaic Panel" 2
+		"toughness" 2700
+	payload "LCT-2 Photovoltaic Rod" 1
+		"toughness" 3600
 	explode "smoke" 40
 	explode "bolide" 40
 	explode "asteroid crunch small"
@@ -152,6 +172,8 @@ outfit "Dysprosium"
 	"flotsam sprite" "effect/flotsam dysprosium"
 	"mass" 2
 	"installable" -1
+	"flotsam chance" 0.01
+	"unplunderable" 1
 	description "Dysprosium is never naturally found as a free element. Many industries in a spacefaring civilization have a use for it."
 
 # Krypton is harvested from gas giants
@@ -226,312 +248,8 @@ outfitter "Gold"
 	"Gold"
 
 
-mission "Harvesting: Metallic Asteroids"
-	landing
-	invisible
-	to offer
-		or
-			has "event: Asteroid Catapult Unfettered"
-			has "event: Asteroid Catapult Remnant"
-	on offer
-		set "Expanded Metallic Asteroid Mining"
-		event "Metallic Asteroid Mining"
-		fail
-
-event "Metallic Asteroid Mining"
-	system "14 Summer Above"
-		add minables "metallic" 4 1
-	system Ablodab
-		add minables "metallic" 4 1
-	system Acnanjo
-		add minables "metallic" 4 1
-	system "Ae Il B-11"
-		add minables "metallic" 4 1
-	system "Ae Il G-66"
-		add minables "metallic" 4 1
-	system "Ae Il H-24"
-		add minables "metallic" 4 1
-	system Aki'il
-		add minables "metallic" 4 1
-	system Albireo
-		add minables "metallic" 4 1
-	system Aldebaran
-		add minables "metallic" 4 1
-	system Alderamin
-		add minables "metallic" 4 1
-	system Algenib
-		add minables "metallic" 4 1
-	system Algol
-		add minables "metallic" 4 1
-	system Algorel
-		add minables "metallic" 4 1
-	system Alnitak
-		add minables "metallic" 4 1
-	system "Alpha Hydri"
-		add minables "metallic" 4 1
-	system Alphecca
-		add minables "metallic" 4 1
-	system Altair
-		add minables "metallic" 4 1
-	system Arculus
-		add minables "metallic" 4 1
-	system Arneb
-		add minables "metallic" 4 1
-	system Aspidiske
-		add minables "metallic" 4 1
-	system Auhru
-		add minables "metallic" 4 1
-	system "Avo Chigo"
-		add minables "metallic" 4 1
-	system Belonging
-		add minables "metallic" 4 1
-	system "Bosuno Le"
-		add minables "metallic" 4 1
-	system "Bright Void"
-		add minables "metallic" 4 1
-	system "Bunri Lemeta"
-		add minables "metallic" 4 1
-	system Canopus
-		add minables "metallic" 4 1
-	system Chirr'ay'akai
-		add minables "metallic" 4 1
-	system Chornifath
-		add minables "metallic" 4 1
-	system Coluber
-		add minables "metallic" 4 1
-	system Dabih
-		add minables "metallic" 4 1
-	system Debrugt
-		add minables "metallic" 4 1
-	system "Elabi Choati"
-		add minables "metallic" 4 1
-	system "Elo Chigo"
-		add minables "metallic" 4 1
-	system "Eneva Katta"
-		add minables "metallic" 4 1
-	system Eogho
-		add minables "metallic" 4 1
-	system "Era Natta"
-		add minables "metallic" 4 1
-	system "Erabu Lemeta"
-		add minables "metallic" 4 1
-	system "Eragaru Le"
-		add minables "metallic" 4 1
-	system "Fallen Leaf"
-		add minables "metallic" 4 1
-	system "Far Horizon"
-		add minables "metallic" 4 1
-	system Fearis
-		add minables "metallic" 4 1
-	system Furmeliki
-		add minables "metallic" 4 1
-	system G-3191
-		add minables "metallic" 4 1
-	system G-719
-		add minables "metallic" 4 1
-	system "Genta Bo"
-		add minables "metallic" 4 1
-	system "Gento Ah"
-		add minables "metallic" 4 1
-	system "Good Omen"
-		add minables "metallic" 4 1
-	system Gualetri
-		add minables "metallic" 4 1
-	system Gupta
-		add minables "metallic" 4 1
-	system H-8188
-		add minables "metallic" 4 1
-	system H-9187
-		add minables "metallic" 4 1
-	system Han
-		add minables "metallic" 4 1
-	system Holeb
-		add minables "metallic" 4 1
-	system Host
-		add minables "metallic" 4 1
-	system Ildaria
-		add minables "metallic" 4 1
-	system Ipsing
-		add minables "metallic" 4 1
-	system "Is Ce B-139"
-		add minables "metallic" 4 1
-	system "Is Ce F-422"
-		add minables "metallic" 4 1
-	system "Is Il X-626"
-		add minables "metallic" 4 1
-	system "Jentu Centi"
-		add minables "metallic" 4 1
-	system "Jentu Le"
-		add minables "metallic" 4 1
-	system Kanguwa
-		add minables "metallic" 4 1
-	system "Kappa Centauri"
-		add minables "metallic" 4 1
-	system "Kaus Borealis"
-		add minables "metallic" 4 1
-	system "Kifrana Terberah"
-		add minables "metallic" 4 1
-	system Kochab
-		add minables "metallic" 4 1
-	system "Kor Zena'i"
-		add minables "metallic" 4 1
-	system Korsmanath
-		add minables "metallic" 4 1
-	system Kursa
-		add minables "metallic" 4 1
-	system "Last Word"
-		add minables "metallic" 4 1
-	system Limen
-		add minables "metallic" 4 1
-	system M-1188
-		add minables "metallic" 4 1
-	system Matar
-		add minables "metallic" 4 1
-	system Meblumem
-		add minables "metallic" 4 1
-	system "Mego Faro"
-		add minables "metallic" 4 1
-	system "Mego Inito"
-		add minables "metallic" 4 1
-	system "Mego Seo"
-		add minables "metallic" 4 1
-	system "Mei Yohn"
-		add minables "metallic" 4 1
-	system Mesuket
-		add minables "metallic" 4 1
-	system Mizar
-		add minables "metallic" 4 1
-	system Mohuwo
-		add minables "metallic" 4 1
-	system Muhlifain
-		add minables "metallic" 4 1
-	system Nnaug
-		add minables "metallic" 4 1
-	system "Over the Rainbow"
-		add minables "metallic" 4 1
-	system "Paru Paru"
-		add minables "metallic" 4 1
-	system Peragenor
-		add minables "metallic" 4 1
-	system Pherkad
-		add minables "metallic" 4 1
-	system Piadenli
-		add minables "metallic" 4 1
-	system Pik'ro'iyak
-		add minables "metallic" 4 1
-	system Pollux
-		add minables "metallic" 4 1
-	system Postverta
-		add minables "metallic" 4 1
-	system Ptobeh
-		add minables "metallic" 4 1
-	system "Ravu Kon"
-		add minables "metallic" 4 1
-	system Regor
-		add minables "metallic" 4 1
-	system Sadalsuud
-		add minables "metallic" 4 1
-	system Saiph
-		add minables "metallic" 4 1
-	system Sargas
-		add minables "metallic" 4 1
-	system Sarin
-		add minables "metallic" 4 1
-	system Scheat
-		add minables "metallic" 4 1
-	system Seketra
-		add minables "metallic" 4 1
-	system "Sera Natta"
-		add minables "metallic" 4 1
-	system Sevrelect
-		add minables "metallic" 4 1
-	system Sheratan
-		add minables "metallic" 4 1
-	system "Shini Bori"
-		add minables "metallic" 4 1
-	system Sich'ka'ara
-		add minables "metallic" 4 1
-	system Silikatakfar
-		add minables "metallic" 4 1
-	system Skeruto
-		add minables "metallic" 4 1
-	system Sobarati
-		add minables "metallic" 4 1
-	system Sumar
-		add minables "metallic" 4 1
-	system Tarazed
-		add minables "metallic" 4 1
-	system "Terra Incognita"
-		add minables "metallic" 4 1
-	system "Thshybo Le"
-		add minables "metallic" 4 1
-	system "Urba Pest"
-		add minables "metallic" 4 1
-	system Vaiov
-		add minables "metallic" 4 1
-	system Volax
-		add minables "metallic" 4 1
-	system Wei
-		add minables "metallic" 4 1
-	system Wreoul
-		add minables "metallic" 4 1
-	system "Xutluno Fali"
-		add minables "metallic" 4 1
-	system "Xutluno Rees"
-		add minables "metallic" 4 1
-	system "Zuba Zub"
-		add minables "metallic" 4 1
-	system "Wah Yoot"
-		add minables "metallic" 8 1.5
-	system "Ehma Ti"
-		add minables "metallic" 8 1.5
-	system "Hi Yahr"
-		add minables "metallic" 8 1.5
-	system Perfica
-		add minables "metallic" 8 1.5
-	system Farinus
-		add minables "metallic" 8 1.5
-	system Archipelago
-		add minables "metallic" 12 2
-	system Aya'arak
-		add minables "metallic" 12 2
-	system Chasm
-		add minables "metallic" 12 2
-	system Diyu
-		add minables "metallic" 12 2
-	system Ehmahai
-		add minables "metallic" 12 2
-	system Genesis
-		add minables "metallic" 12 2
-	system Heiahai
-		add minables "metallic" 12 2
-	system Kalsolli
-		add minables "metallic" 12 2
-	system "Pebble Beach"
-		add minables "metallic" 12 2
-	system Quarantine
-		add minables "metallic" 12 2
-	system Temeh
-		add minables "metallic" 12 2
-	system "Watcher's Nest"
-		add minables "metallic" 12 2
-	system Zubahai
-		add minables "metallic" 12 2
-
-mission "Harvesting: Metallic Asteroids Expanded"
-	landing
-	invisible
-	to offer
-		has "event: Metallic Asteroid Mining"
-		not "Expanded Metallic Asteroid Mining"
-	on offer
-		set "Expanded Metallic Asteroid Mining"
-		event "Metallic Asteroid Mining"
-		fail
-
-
-
 mission "Harvesting: Pyrite Asteroids"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -621,6 +339,7 @@ event "Pyrite Mining"
 
 
 mission "Harvesting: Space Junk"
+	non-blocking
 	landing
 	invisible
 	on offer
@@ -645,7 +364,7 @@ event "Space Junk Mining"
 
 
 
-mission "Harvesting: Krypton"
+mission "Harvesting: Midnight Gas"
 	landing
 	invisible
 	repeat
@@ -657,16 +376,20 @@ mission "Harvesting: Krypton"
 			has "outfit (flagship installed): Fuel Pod (Reinforced)"
 			has "outfit (flagship installed): Fuel Canister (Reinforced)"
 			has "outfit (flagship installed): Fuel Stabilizer"
-		random < 1
+		random < 10
 	on offer
 		conversation
+			branch radonharvest
+				random < 70
+			branch xenonharvest
+				random < 66
 			scene "outfit/harvested krypton"
 			`The <ship> has located a pocket of Krypton gas. Harvest some?`
 			choice
 				`	(Use a Fuel Stabilizer to harvest the Krypton.)`
 					to display
 						has "outfit (flagship installed): Fuel Stabilizer"
-					goto stabilizer
+					goto stabilizerkrypton
 				`	(Use a reinforced Fuel Tank to harvest the Krypton.)`
 					to display
 						has "outfit (flagship installed): Fuel Tank (Reinforced)"
@@ -675,12 +398,12 @@ mission "Harvesting: Krypton"
 					to display
 						has "outfit (flagship installed): Fuel Pod (Reinforced)"
 						not "outfit (flagship installed): Fuel Stabilizer"
-					goto pod
+					goto podkrypton
 				`	(Use a reinforced Fuel Canister to harvest the Krypton.)`
 					to display
 						has "outfit (flagship installed): Fuel Canister (Reinforced)"
 						not "outfit (flagship installed): Fuel Stabilizer"
-					goto canister
+					goto canisterkrypton
 				`	(Leave it.)`
 					decline
 			action
@@ -690,7 +413,7 @@ mission "Harvesting: Krypton"
 			``
 			`		(It can be sold from the outfitter screen.)`
 				decline
-			label pod
+			label podkrypton
 			action
 				outfit "Krypton" 2
 			scene "outfit/fuel pod reinforced b"
@@ -698,7 +421,7 @@ mission "Harvesting: Krypton"
 			``
 			`		(It can be sold from the outfitter screen.)`
 				decline
-			label canister
+			label canisterkrypton
 			action
 				outfit "Krypton" 1
 			scene "outfit/fuel pod reinforced"
@@ -706,19 +429,9 @@ mission "Harvesting: Krypton"
 			``
 			`		(It can be sold from the outfitter screen.)`
 				decline
-			label stabilizer
-			branch luck4
+			label stabilizerkrypton
+			branch luck4krypton
 				random < 66
-			action
-				outfit "Krypton" 3
-			scene "outfit/Becca fuel compressor"
-			`	You pump the Krypton gas through the Fuel Stabilizer to make it easier to store.`
-			``
-			`		(It can be sold from the outfitter screen.)`
-				decline
-			label luck4
-			branch luck5
-				random < 50
 			action
 				outfit "Krypton" 4
 			scene "outfit/Becca fuel compressor"
@@ -726,7 +439,9 @@ mission "Harvesting: Krypton"
 			``
 			`		(It can be sold from the outfitter screen.)`
 				decline
-			label luck5
+			label luck4krypton
+			branch luck5krypton
+				random < 50
 			action
 				outfit "Krypton" 5
 			scene "outfit/Becca fuel compressor"
@@ -734,29 +449,23 @@ mission "Harvesting: Krypton"
 			``
 			`		(It can be sold from the outfitter screen.)`
 				decline
+			label luck5krypton
+			action
+				outfit "Krypton" 6
+			scene "outfit/Becca fuel compressor"
+			`	You pump the Krypton gas through the Fuel Stabilizer to make it easier to store.`
+			``
+			`		(It can be sold from the outfitter screen.)`
+				decline
 
-mission "Harvesting: Xenon"
-	landing
-	invisible
-	repeat
-	source
-		attributes "requires: gaslining"
-	to offer
-		or
-			has "outfit (flagship installed): Fuel Tank (Reinforced)"
-			has "outfit (flagship installed): Fuel Pod (Reinforced)"
-			has "outfit (flagship installed): Fuel Canister (Reinforced)"
-			has "outfit (flagship installed): Fuel Stabilizer"
-		random < 3
-	on offer
-		conversation
+			label xenonharvest
 			scene "outfit/harvested xenon"
 			`The <ship> has located a pocket of Xenon gas. Harvest some?`
 			choice
 				`	(Use a Fuel Stabilizer to harvest the Xenon.)`
 					to display
 						has "outfit (flagship installed): Fuel Stabilizer"
-					goto stabilizer
+					goto stabilizerxenon
 				`	(Use a reinforced Fuel Tank to harvest the Xenon.)`
 					to display
 						has "outfit (flagship installed): Fuel Tank (Reinforced)"
@@ -765,12 +474,12 @@ mission "Harvesting: Xenon"
 					to display
 						has "outfit (flagship installed): Fuel Pod (Reinforced)"
 						not "outfit (flagship installed): Fuel Stabilizer"
-					goto pod
+					goto podxenon
 				`	(Use a reinforced Fuel Canister to harvest the Xenon.)`
 					to display
 						has "outfit (flagship installed): Fuel Canister (Reinforced)"
 						not "outfit (flagship installed): Fuel Stabilizer"
-					goto canister
+					goto canisterxenon
 				`	(Leave it.)`
 					decline
 			action
@@ -780,7 +489,7 @@ mission "Harvesting: Xenon"
 			``
 			`		(It can be sold from the outfitter screen.)`
 				decline
-			label pod
+			label podxenon
 			action
 				outfit "Xenon" 2
 			scene "outfit/fuel pod reinforced b"
@@ -788,7 +497,7 @@ mission "Harvesting: Xenon"
 			``
 			`		(It can be sold from the outfitter screen.)`
 				decline
-			label canister
+			label canisterxenon
 			action
 				outfit "Xenon" 1
 			scene "outfit/fuel pod reinforced"
@@ -796,19 +505,9 @@ mission "Harvesting: Xenon"
 			``
 			`		(It can be sold from the outfitter screen.)`
 				decline
-			label stabilizer
-			branch luck4
+			label stabilizerxenon
+			branch luck4xenon
 				random < 66
-			action
-				outfit "Xenon" 3
-			scene "outfit/Becca fuel compressor"
-			`	You pump the Xenon gas through the Fuel Stabilizer to make it easier to store.`
-			``
-			`		(It can be sold from the outfitter screen.)`
-				decline
-			label luck4
-			branch luck5
-				random < 50
 			action
 				outfit "Xenon" 4
 			scene "outfit/Becca fuel compressor"
@@ -816,7 +515,9 @@ mission "Harvesting: Xenon"
 			``
 			`		(It can be sold from the outfitter screen.)`
 				decline
-			label luck5
+			label luck4xenon
+			branch luck5xenon
+				random < 50
 			action
 				outfit "Xenon" 5
 			scene "outfit/Becca fuel compressor"
@@ -824,30 +525,23 @@ mission "Harvesting: Xenon"
 			``
 			`		(It can be sold from the outfitter screen.)`
 				decline
+			label luck5xenon
+			action
+				outfit "Xenon" 6
+			scene "outfit/Becca fuel compressor"
+			`	You pump the Xenon gas through the Fuel Stabilizer to make it easier to store.`
+			``
+			`		(It can be sold from the outfitter screen.)`
+				decline
 
-mission "Harvesting: Radon"
-	landing
-	invisible
-	repeat
-	source
-		attributes "requires: gaslining"
-	to offer
-		"flagship attribute: gas storage" >= 1000
-		or
-			has "outfit (flagship installed): Fuel Tank (Reinforced)"
-			has "outfit (flagship installed): Fuel Pod (Reinforced)"
-			has "outfit (flagship installed): Fuel Canister (Reinforced)"
-			has "outfit (flagship installed): Fuel Stabilizer"
-		random < 5
-	on offer
-		conversation
+			label radonharvest
 			scene "outfit/harvested radon"
 			`The <ship> has located a pocket of Radon gas. Harvest some?`
 			choice
 				`	(Use a Fuel Stabilizer to harvest the Radon.)`
 					to display
 						has "outfit (flagship installed): Fuel Stabilizer"
-					goto stabilizer
+					goto stabilizerradon
 				`	(Use a reinforced Fuel Tank to harvest the Radon.)`
 					to display
 						has "outfit (flagship installed): Fuel Tank (Reinforced)"
@@ -856,12 +550,12 @@ mission "Harvesting: Radon"
 					to display
 						has "outfit (flagship installed): Fuel Pod (Reinforced)"
 						not "outfit (flagship installed): Fuel Stabilizer"
-					goto pod
+					goto podradon
 				`	(Use a reinforced Fuel Canister to harvest the Radon.)`
 					to display
 						has "outfit (flagship installed): Fuel Canister (Reinforced)"
 						not "outfit (flagship installed): Fuel Stabilizer"
-					goto canister
+					goto canisterradon
 				`	(Leave it.)`
 					decline
 			action
@@ -871,7 +565,7 @@ mission "Harvesting: Radon"
 			``
 			`		(It can be sold from the outfitter screen.)`
 				decline
-			label pod
+			label podradon
 			action
 				outfit "Radon" 2
 			scene "outfit/fuel pod reinforced b"
@@ -879,7 +573,7 @@ mission "Harvesting: Radon"
 			``
 			`		(It can be sold from the outfitter screen.)`
 				decline
-			label canister
+			label canisterradon
 			action
 				outfit "Radon" 1
 			scene "outfit/fuel pod reinforced"
@@ -887,19 +581,9 @@ mission "Harvesting: Radon"
 			``
 			`		(It can be sold from the outfitter screen.)`
 				decline
-			label stabilizer
-			branch luck4
+			label stabilizerradon
+			branch luck4radon
 				random < 66
-			action
-				outfit "Radon" 3
-			scene "outfit/Becca fuel compressor"
-			`	You pump the Radon gas through the Fuel Stabilizer to make it easier to store.`
-			``
-			`		(It can be sold from the outfitter screen.)`
-				decline
-			label luck4
-			branch luck5
-				random < 50
 			action
 				outfit "Radon" 4
 			scene "outfit/Becca fuel compressor"
@@ -907,7 +591,9 @@ mission "Harvesting: Radon"
 			``
 			`		(It can be sold from the outfitter screen.)`
 				decline
-			label luck5
+			label luck4radon
+			branch luck5radon
+				random < 50
 			action
 				outfit "Radon" 5
 			scene "outfit/Becca fuel compressor"
@@ -915,3 +601,44 @@ mission "Harvesting: Radon"
 			``
 			`		(It can be sold from the outfitter screen.)`
 				decline
+			label luck5radon
+			action
+				outfit "Radon" 6
+			scene "outfit/Becca fuel compressor"
+			`	You pump the Radon gas through the Fuel Stabilizer to make it easier to store.`
+			``
+			`		(It can be sold from the outfitter screen.)`
+				decline
+
+
+
+############################
+#
+# deprecated
+#
+############################
+
+mission "Harvesting: Krypton"
+	landing
+	repeat
+	source
+		attributes "requires: gaslining"
+	to offer
+		never
+
+mission "Harvesting: Xenon"
+	landing
+	invisible
+	source
+		attributes "requires: gaslining"
+	to offer
+		never
+
+mission "Harvesting: Radon"
+	landing
+	invisible
+	source
+		attributes "requires: gaslining"
+	to offer
+		never
+

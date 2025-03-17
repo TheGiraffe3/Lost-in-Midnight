@@ -167,7 +167,7 @@ mission "Midnight Market: Trailblazer 1"
 				names "Oathbreaker fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 4
+				"Lance" 8
 				"Combat Drone" 6
 
 mission "Midnight Market: Trailblazer 2"
@@ -389,6 +389,7 @@ mission "Midnight Market: Coalition Smuggling 2"
 		set "Randomize Midnight Market: Coalition Smuggling 1"
 		clear "Midnight Market: Coalition Smuggling 1: offered"
 		"Midnight Market" ++
+		"reputation: Independent" ++
 		payment 1000000
 		dialog `You escort the ship to secluded warehouse where they start unloading the cargo. Some of it is very bulky. You get a message congratulating you on a job well done. <payment> has been deposited into your account.`
 
@@ -465,6 +466,7 @@ mission "Midnight Market: Coalition Smuggling 4"
 		"Midnight Market" -= 3
 	on complete
 		"Midnight Market" ++
+		"reputation: Independent" ++
 		payment 2000000
 		clear "Midnight Market: Coalition Smuggling 3: offered"
 		clear "Midnight Market: Coalition Smuggling 1: done"
@@ -474,6 +476,7 @@ mission "Midnight Market: Coalition Smuggling 4"
 
 
 mission "Midnight Market: Coalition Smuggler Patrols"
+	non-blocking
 	landing
 	invisible
 	to offer
@@ -620,6 +623,7 @@ mission "Midnight Market: Coalition Smuggling Bounty (Arach)"
 		dialog `Your assistance with stopping the smugglers is appreciated by the Heliarchs. They pay you <payment> for your efforts.`
 
 mission "Coalition Smuggling Bounty Independent Patch"
+	non-blocking
 	landing
 	invisible
 	to offer

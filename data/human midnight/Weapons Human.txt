@@ -61,26 +61,37 @@ outfit "Asteroid Catapult"
 		"missile strength" 200
 		"inaccuracy" 0.2
 		"velocity" 18
-		"lifetime" 200
+		"lifetime" 5
+		"range override" 4500
 		"reload" 350
-		"firing energy" 710
+		"firing energy" 350
 		"firing force" 135
-		"firing heat" 160
-		"shield damage" 4000
-		"hull damage" 7000
-		"piercing" .5
-		"hit force" 13500
-		"submunition" "Asteroid Deterioration" 1
+		"firing heat" 720
+		"ion damage" 8
+		"scrambling damage" 8
+		"submunition" "Asteroid Catapult De-ionized" 1
 
-outfit "Asteroid Deterioration"
+outfit "Asteroid Catapult De-ionized"
+	weapon
+		sprite "projectile/asteroid catapult"
+		"hit effect" "piercer impact"
+		"live effect" "ionball trail" 140
+		"lifetime" 195
+		"shield damage" 6000
+		"hull damage" 9000
+		"piercing" .5
+		"hit force" 7000
+		"submunition" "Asteroid Catapult Deterioration" 1
+
+outfit "Asteroid Catapult Deterioration"
 	weapon
 		sprite "projectile/asteroid catapult"
 		"hit effect" "piercer impact"
 		"die effect" "bolide" 5
-		"velocity" 9
-		"lifetime" 100
-		"shield damage" 2000
-		"hull damage" 3500
+		"lifetime" 50
+		"shield damage" 3000
+		"hull damage" 4500
+		"hit force" 700
 
 
 
@@ -108,7 +119,7 @@ outfit "Double Anti-Missile Turret"
 
 outfit "Energy Cannon"
 	category "Guns"
-	cost 64000
+	cost 124000
 	thumbnail "outfit/energy cannon"
 	"mass" 12
 	"outfit space" -12
@@ -134,7 +145,7 @@ outfit "Energy Cannon"
 
 outfit "Energy Cannon Turret"
 	category "Turrets"
-	cost 256000
+	cost 240000
 	thumbnail "outfit/energy cannon turret"
 	"mass" 15
 	"outfit space" -15
@@ -148,7 +159,7 @@ outfit "Energy Cannon Turret"
 		sound "torpedo-ver8"
 		"hit effect" "energy cannon impact"
 		"inaccuracy" 4
-		"turret turn" 1.6
+		"turret turn" 1.2
 		"velocity" 10
 		"lifetime" 6
 		"range override" 720
@@ -224,8 +235,70 @@ effect "energy cannon sub impact"
 
 
 
+outfit "Hyperspace Nuke"
+	category "Secondary Weapons"
+	cost 1000000
+	thumbnail "outfit/hypernuke"
+	"mass" 10
+	"outfit space" -10
+	"weapon capacity" -10
+	"gun ports" -1
+	weapon
+		sprite "projectile/hypernuke"
+			"no repeat"
+			"frame rate" .25
+		"hardpoint sprite" "hardpoint/hypernuke"
+		sound "nuke"
+		ammo "Hyperspace Nuke"
+		stream
+		icon "icon/hypernuke"
+		"live effect" "hypernuke trail" 280
+		"hit effect" "nuke explosion"
+		"hit effect" "nuke residue fast" 10
+		"hit effect" "nuke residue slow" 10
+		"die effect" "missile death"
+		"inaccuracy" 2
+		"velocity" 12
+		"lifetime" 400
+		"random lifetime" 400
+		"range override" 9600
+		"reload" 400
+		"firing energy" 10
+		"firing fuel" 5
+		"firing heat" 800
+		"acceleration" 1.6
+		"drag" .1
+		"turn" 2
+		"homing" 4
+		"radar tracking" .5
+		"optical tracking" 1
+		"trigger radius" 30
+		"blast radius" 150
+		"shield damage" 9000
+		"hull damage" 7000
+		"hit force" 6000
+		"missile strength" 220
+	description "	This Nuclear Missile has been outfitted with an experimental hyperspace fuel afterburner. It can fly faster, and potentially, farther than standard Nuclear Missiles if it doesn't explode prematurely. This increased speed helps it outpace anti-missile systems, but it has difficulty adjusting its trajectory once fired."
+	description "	[Hyperspace nukes are a one-shot weapon: each missile occupies a gun slot, and after it is fired, the slot it was in is left empty.]"
+
+effect "hypernuke trail"
+	sprite "effect/afterburner"
+		"no repeat"
+		"frame rate" 30
+	sound "afterburner"
+	"lifetime" 10
+	"random angle" 30
+	"random spin" 10
+	"random velocity" 1.
+	"velocity scale" 1.
+	"absolute angle" 180
+	"absolute velocity" 0
+
+
 outfit "Inferno Rocket"
 	category "Ammunition"
+	licenses
+		"Inferno Dragon"
 	cost 2000
 	thumbnail "outfit/inferno rocket"
 	"mass" .5
@@ -234,6 +307,8 @@ outfit "Inferno Rocket"
 
 outfit "Inferno Rocket Rack"
 	category "Ammunition"
+	licenses
+		"Inferno Dragon"
 	cost 20000
 	thumbnail "outfit/inferno rocket storage"
 	"mass" 2
@@ -244,6 +319,8 @@ outfit "Inferno Rocket Rack"
 
 outfit "Inferno Rocket Launcher"
 	category "Secondary Weapons"
+	licenses
+		"Inferno Dragon"
 	cost 40000
 	thumbnail "outfit/inferno rocket launcher"
 	"mass" 15
@@ -261,6 +338,7 @@ outfit "Inferno Rocket Launcher"
 		"hit effect" "inferno rocket burn large" 5
 		"hit effect" "inferno rocket burn medium" 10
 		"hit effect" "inferno rocket burn small" 20
+		"target effect" "flame" 180
 		"die effect" "medium explosion"
 		"inaccuracy" 1
 		"velocity" 8
@@ -271,7 +349,7 @@ outfit "Inferno Rocket Launcher"
 		"acceleration" .8
 		"drag" .1
 		"trigger radius" 20
-		"blast radius" 50
+		"blast radius" 60
 		"shield damage" 192
 		"hull damage" 168
 		"hit force" 90
@@ -282,6 +360,8 @@ outfit "Inferno Rocket Launcher"
 
 outfit "Inferno Rocket Pod"
 	category "Secondary Weapons"
+	licenses
+		"Inferno Dragon"
 	cost 15000
 	thumbnail "outfit/inferno rocket pod"
 	"mass" 3
@@ -299,6 +379,7 @@ outfit "Inferno Rocket Pod"
 		"hit effect" "inferno rocket burn large" 5
 		"hit effect" "inferno rocket burn medium" 10
 		"hit effect" "inferno rocket burn small" 20
+		"target effect" "flame" 180
 		"die effect" "medium explosion"
 		"inaccuracy" 1
 		"velocity" 8
@@ -311,7 +392,7 @@ outfit "Inferno Rocket Pod"
 		"acceleration" .8
 		"drag" .1
 		"trigger radius" 20
-		"blast radius" 50
+		"blast radius" 60
 		"shield damage" 192
 		"hull damage" 168
 		"hit force" 90
@@ -456,7 +537,7 @@ outfit "Kludge Blaster"
 		"hull damage" 8.8
 		"minable damage" 10.6
 		"cluster"
-	description "Kludge Blasters started out as a failed attempt at modifying an Energy Blaster. Pirate captains short on cash due to botched raid attempts, smuggling jobs gone wrong, or an unlucky night at the card tables might resort to mounting Kludge Blasters onto their ship instead of more effective weapons. Despite their shady origins, Kludge Blasters eventually gained widespread popularity with new starship pilots in search of a budget alternative mining weapon and are available at many legitimate outfitters across the galaxy."
+	description "Kludge Blasters started out as a failed attempt at modifying an Energy Blaster. Despite their shady origins, the most basic version eventually gained widespread popularity as a budget alternative mining weapon and are available at many legitimate outfitters across the galaxy."
 	description `	This weapon is set to fire in "cluster" mode, synchronizing its rate of fire when multiple copies are installed together.`
 
 outfit "Twin Kludge Blaster"
@@ -484,7 +565,7 @@ outfit "Twin Kludge Blaster"
 		"firing energy" 13
 		"firing heat" 45
 		"cluster"
-	description "Jamming two Kludge Blasters into a single gun port was one innovation that spawned copycats among other blaster designers. The localized cluster fire exhibited in them harkens back to this original design."
+	description "Pirate captains short on cash due to botched raid attempts or an unlucky night at the card tables might resort to mounting Kludge Blasters onto their ship instead of more effective weapons. Jamming two Kludge Blasters into a single gun port was one innovation that spawned copycats among other blaster designers. The localized cluster fire exhibited in them harkens back to this original design."
 	description `	This weapon is set to fire in "cluster" mode, synchronizing its rate of fire when multiple copies are installed together.`
 
 outfit "Kludge Submunition"
@@ -525,7 +606,7 @@ outfit "Triple Kludge Blaster"
 		"firing energy" 19.5
 		"firing heat" 69
 		"cluster"
-	description "In an effort to maximize the effectiveness of the Kludge Blaster, overzealous weaponsmiths have found a way to squeeze three of them into a single gun port. This increases the damage yield at the cost of increased heat buildup."
+	description "The pressures of war inspired weaponsmiths to figure out how to squeeze even more Kludge Blasters into a single gun port. This increases the damage yield at the cost of increased heat buildup."
 	description `	This weapon is set to fire in "cluster" mode, synchronizing its rate of fire when multiple copies are installed together.`
 
 outfit "Kludge Blaster Turret"
@@ -557,7 +638,7 @@ outfit "Kludge Blaster Turret"
 		"firing energy" 13
 		"firing heat" 45
 		"cluster"
-	description "Unlike other blaster turrets, both barrels of the Kludge Blaster Turret fire simultaneously. It was hoped that launching the projectiles in a volley would help compensate for the weapon's slow rate of fire."
+	description "Pirate captains short on cash due to smuggling jobs gone wrong, or an unlucky run at the dog races might resort to mounting Kludge Blasters onto their ship instead of more effective weapons. Unlike other blaster turrets, both barrels of the Kludge Blaster Turret fire simultaneously. It was hoped that launching the projectiles in a volley would help compensate for the weapon's slow rate of fire."
 	description `	This weapon is set to fire in "cluster" mode, synchronizing its rate of fire when multiple copies are installed together.`
 
 outfit "Quad Kludge Blaster Turret"
@@ -652,6 +733,37 @@ effect "kludge impact"
 
 
 
+outfit "Modified Plasma Turret"
+	category "Turrets"
+	cost 330000
+	thumbnail "outfit/modified plasma turret"
+	"mass" 31
+	"outfit space" -31
+	"weapon capacity" -31
+	"turret mounts" -1
+	"required crew" 1
+	weapon
+		sprite "projectile/plasma"
+			"frame rate" 3
+		"hardpoint sprite" "hardpoint/modified plasma turret"
+		"hardpoint offset" 15.
+		sound "plasma"
+		"hit effect" "plasma explosion"
+		"inaccuracy" 2
+		"turret turn" 1.8
+		"velocity" 12
+		"lifetime" 40
+		"reload" 18
+		"firing energy" 30
+		"firing heat" 180
+		"hit force" 45
+		"shield damage" 63
+		"hull damage" 25
+		"heat damage" 340
+	description "This Plasma Turret only has a single Plasma Cannon mounted on it. While not as fearsome as Kraz's Plasma Turret, it is far more accessible."
+
+
+
 outfit "Twin Particle Cannon"
 	category "Guns"
 	cost 530000
@@ -676,7 +788,7 @@ outfit "Twin Particle Cannon"
 		"firing force" 30
 		"firing heat" 240
 		"cluster"
-	description "Both barrels of the Twin Particle Cannon fire similtaneously, releasing double the force of a single Particle Cannon all at once. The size of this weapon is its main drawback, as few ships can accomodate it. While this product is fully functional, the sales department has raised concerns about its viability in the marketplace."
+	description "Both barrels of the Twin Particle Cannon fire simultaneously, releasing double the force of a single Particle Cannon all at once. The size of this weapon is its main drawback, as few ships can accomodate it. While this product is fully functional, the sales department has raised concerns about its viability in the marketplace."
 	description `	This weapon is set to fire in "cluster" mode, synchronizing its rate of fire when multiple copies are installed together.`
 
 outfit "Particle Submunition"
@@ -752,7 +864,8 @@ outfit "Plasma Cluster Cannon"
 	description `	This weapon is set to fire in "cluster" mode, synchronizing its rate of fire when multiple copies are installed together.`
 
 effect "plasma cluster explosion"
-	sprite "effect/plasma cluster explosion"
+	sprite "effect/plasma explosion"
+		scale 2
 		"no repeat"
 		"frame rate" 20
 	sound "explosion tiny"
@@ -887,7 +1000,8 @@ effect "silencer beam impact"
 
 
 outfit "Spotlight"
-	category "Secondary Weapons"
+#	category "Secondary Weapons"
+	category "Guns"
 	cost 3000
 	thumbnail "outfit/spotlight"
 	"mass" 1
@@ -896,18 +1010,20 @@ outfit "Spotlight"
 	"gun ports" -1
 	weapon
 		"fire effect" "spotlight"
-		icon "icon/spotlight"
+#		icon "icon/spotlight"
 		"velocity" 150
 		"lifetime" 1
 		"reload" 1
 		"firing energy" .067
 		"firing heat" .16
-		"phasing"
-	description "This powerful light source can be installed into one of your ship's gun ports."
+		"minable damage" 0.0001
+		"prospecting" 0.000025
+	description "This powerful light source can be installed into one of your ship's gun ports. Some miners insist that using a Spotlight to visually inspect asteroids while they work helps them improve their yield by reducing waste."
 	description "	Despite doing no damage, targeting other ships with this can still provoke them..."
 
 outfit "Search Light"
-	category "Secondary Weapons"
+#	category "Secondary Weapons"
+	category "Turrets"
 	cost 6000
 	thumbnail "outfit/search light"
 	"mass" 2
@@ -918,15 +1034,16 @@ outfit "Search Light"
 		"fire effect" "spotlight"
 		"hardpoint sprite" "hardpoint/search light"
 		"hardpoint offset" 2.
-		icon "icon/search light"
+#		icon "icon/search light"
 		"turret turn" 1
 		"velocity" 150
 		"lifetime" 1
 		"reload" 1
 		"firing energy" .067
 		"firing heat" .16
-		"phasing"
-	description "A Spotlight mounted onto a rotating turret platform provides a wider area of coverage."
+		"minable damage" 0.0001
+		"prospecting" 0.000025
+	description "A Spotlight mounted onto a rotating turret platform provides a wider area of coverage. Whether or not this can help you locate anything lurking in the darkness is uncertain."
 	description "	Despite doing no damage, targeting other ships with this can still provoke them..."
 
 effect "spotlight"
@@ -942,7 +1059,7 @@ outfit "Stinger Missile"
 	thumbnail "outfit/stinger missile"
 	"mass" .4
 	"stinger capacity" -1
-	description "A Stinger Missile serves as ammunition for the Stinger Missile Launcher. Each missile launcher has its own capacity; you cannot install missiles if you have not first purchased a pod, launcher, or storage to store them in."
+	description "A Stinger Missile serves as ammunition for the Stinger Missile Launcher. You cannot install missiles if you have not first purchased a pod, launcher, or rack to store them in."
 	description "	Mass produced under horrendous conditions on pirate worlds, Stinger Missiles utilize outdated radar tracking technology and are also easily destroyed by anti-missile weapons. Often, the slaves assigned to manufacture them are sick or elderly. In other words, the ones too weak to fight or have low potential future value. Accidental exposure to the toxic materials in these weapons during construction is common, resulting in a high mortality rate among the laborers."
 
 outfit "Stinger Missile Rack"
@@ -980,19 +1097,19 @@ outfit "Stinger Missile Launcher"
 		"reload" 120
 		"firing energy" 1
 		"firing heat" 20
-		"acceleration" 1.2
+		"acceleration" .8
 		"drag" .1
 		"turn" 1.8
 		"homing" 1
 		"radar tracking" .65
-		"shield damage" 230
-		"discharge damage" 6.7
+		"shield damage" 160
+		"discharge damage" 5.10
 		"hull damage" 60
-		"corrosion damage" 10
+		"corrosion damage" 10.00
 		"hit force" 90
 		"missile strength" 6
-	description "The use of hazardous waste as a weapon has long been a popular tactic among anarchists and terrorists. Stinger Missiles are one example of this. Devoloped during the early turf wars, the materials to make them are readily available and there is no shortage of suppliers."
-	description "	If it is able to get past the shields and splatter the target with its dangerous payload, the residue will continue to corrode the hull for some time after the initial impact."
+	description "The use of hazardous waste as a weapon has long been a popular tactic among anarchists and terrorists. Stinger Missiles are an insidious example of this. Devoloped during the early turf wars, the materials to make them are readily available and there is no shortage of suppliers."
+	description "	Once it splatters the target with its dangerous payload, the residue will continue to discharge the shields or corrode the hull for some time after the initial impact."
 
 outfit "Stinger Missile Pod"
 	category "Secondary Weapons"
@@ -1016,22 +1133,23 @@ outfit "Stinger Missile Pod"
 		"velocity" 11
 		"lifetime" 350
 		"reload" 250
-		"burst count" 7
+		"burst count" 2
 		"burst reload" 120
 		"firing energy" 1
 		"firing heat" 20
-		"acceleration" 1.2
+		"acceleration" .8
 		"drag" .1
 		"turn" 1.8
 		"homing" 1
 		"radar tracking" .65
-		"shield damage" 670
+		"shield damage" 160
+		"discharge damage" 5.10
 		"hull damage" 60
-		"corrosion damage" 10
+		"corrosion damage" 10.00
 		"hit force" 90
 		"missile strength" 6
-	description "The use of hazardous waste as a weapon has long been a popular tactic among anarchists and terrorists. Stinger Missiles are one example of this. Devoloped during the early turf wars, the materials used to make them are readily available and there is no shortage of suppliers."
-	description "	If it is able to get past the shields and splatter the target with its dangerous payload, the residue will continue to corrode the hull for some time after the initial impact."
+	description "The use of hazardous waste as a weapon has long been a popular tactic among anarchists and terrorists. Stinger Missiles are an insidious example of this. Devoloped during the early turf wars, the materials to make them are readily available and there is no shortage of suppliers."
+	description "	Once it splatters the target with its dangerous payload, the residue will continue to discharge the shields or corrode the hull for some time after the initial impact."
 	description "	Pods enable fighters and other light craft to carry small quantities of rockets into battle while retaining enough space for other weapons. Large ships are better off with full-size launchers."
 
 effect "stinger splatter"
@@ -1054,7 +1172,7 @@ outfit "Swingfire Missile"
 	thumbnail "outfit/swingfire"
 	"mass" .2
 	"swingfire capacity" -1
-	description "The Swingfire Missile is ammunition for the Swingfire Missile Launcher; each launcher that you have installed can be armed with up to 34 of them, while pods can carry 3. You cannot install a missile without a pod or launcher to fire it from."
+	description "The Swingfire Missile is ammunition for the Swingfire Missile Launcher. You cannot install missiles if you have not first purchased a pod, launcher, or rack to store them in."
 
 outfit "Swingfire Missile Rack"
 	category "Ammunition"
@@ -1176,6 +1294,7 @@ outfit "Thermo Detonator"
 		"turret turn" 60
 		"velocity" 0
 		"lifetime" 1
+		"range override" 150
 		"reload" 400
 		"firing energy" 1
 		"trigger radius" 150

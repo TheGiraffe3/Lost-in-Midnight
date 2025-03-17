@@ -253,7 +253,6 @@ mission "Escort North Pirate Home"
 	name "Protection to <planet>"
 	description "The captain of the <npc> will pay you <payment> to help them return to their base on <destination> by <date>."
 	source
-	source
 		attributes "pirate"
 		not attributes "uninhabited" "north pirate"
 	destination
@@ -557,27 +556,27 @@ mission "Hostage Exchange: hard"
 			scene "outfit/laser rifle"
 			`It's a trap! You barely make it back to your ship without losing the hostage. Return your hostage to <destination> and maybe your client will give you something for your efforts.`
 	npc evade
-		to spawn
-			"combat rating" > 500
 		government "Bounty Hunter"
 		personality waiting vindictive unconstrained
 			confusion 10
 		fleet "Bounty Hunters"
 	npc evade
 		to spawn
-			"combat rating" > 750
+			"armament deterrence" >= 2
 		government "Bounty Hunter"
 		personality waiting vindictive unconstrained
 			confusion 10
 		fleet "Bounty Hunters"
 	npc evade
 		to spawn
-			"combat rating" > 1000
+			"armament deterrence" >= 3
 		government "Bounty Hunter"
 		personality waiting vindictive unconstrained
 			confusion 10
 		fleet "Bounty Hunters"
 	npc evade
+		to spawn
+			"armament deterrence" >= 4
 		government "Bounty Hunter"
 		personality waiting vindictive unconstrained
 			confusion 10
@@ -591,7 +590,6 @@ mission "Hostage Exchange: hard"
 		conversation
 			scene "outfit/handgun black"
 			"Although the exchange was a failure, your client is grateful you brought their hostage back. As one of their associates pays you <payment>, the hostage is taken through a door to another room. You hear a series of gunshots and muffled screams from the other side of the door as your client continues to congratulate you on a job well done..."
-
 
 
 mission "Jail Break A"
@@ -612,17 +610,17 @@ mission "Jail Break A"
 		dialog `The <npc> is here! Board the ship and release the pirate warlord.`
 	npc
 		government "Republic"
-		personality target waiting timid uninterested
+		personality target waiting staying timid uninterested
 		system "Zosma"
 		fleet
 			fighters
 				names "republic fighter"
 			variant
-				"Lance" 4
+				"Lance" 8
 				"Combat Drone" 6
 	npc board
 		government "Republic"
-		personality target waiting timid uninterested
+		personality target waiting staying timid uninterested
 		system "Zosma"
 		fleet
 			names "republic capital"
@@ -682,17 +680,17 @@ mission "Jail Break B"
 				"Marauder Leviathan (Engines)"
 	npc
 		government "Republic"
-		personality target waiting timid uninterested
+		personality target waiting staying timid uninterested
 		system "Zosma"
 		fleet
 			fighters
 				names "republic fighter"
 			variant
-				"Lance" 4
+				"Lance" 8
 				"Combat Drone" 6
 	npc board
 		government "Republic"
-		personality target entering timid uninterested
+		personality target waiting staying timid uninterested
 		system "Zosma"
 		fleet
 			names "republic capital"
@@ -725,17 +723,17 @@ mission "Jail Break C"
 		dialog `The <npc> is here! Board the ship and release the pirate warlord.`
 	npc
 		government "Republic"
-		personality target waiting timid uninterested
+		personality target waiting staying timid uninterested
 		system "Zosma"
 		fleet
 			fighters
 				names "republic fighter"
 			variant
-				"Lance" 4
+				"Lance" 8
 				"Combat Drone" 6
 	npc board
 		government "Republic"
-		personality target entering timid uninterested
+		personality target waiting staying timid uninterested
 		system "Zosma"
 		fleet
 			names "republic capital"
@@ -790,7 +788,7 @@ mission "Jail Break Fake"
 				die
 			label "not alone"
 			branch "tactical retreat"
-				random < "flagship crew" - 80
+				random < ( "flagship required crew" - 80 )
 			`	Your crew fights bravely. Unfortunately, a stray bullet finds its way into your vital organs.`
 				die
 			label "tactical retreat"
@@ -991,17 +989,7 @@ mission "Smuggler Exchange (Dirt Belt, Terminus)"
 		government "Bounty (Disguised)"
 		system "Terminus"
 		personality target waiting staying timid
-		fleet
-			names "pirate"
-			outfitters "Contraband"
-			variant
-				"Modified Clipper (Smuggler)"
-			variant
-				"Modified Argosy (Shields Smuggler)"
-			variant
-				"Modified Firebird (Smuggler)"
-			variant
-				"Modified Enforcer (Smuggler)"
+		fleet "Smugglers"
 	on abort
 		clear "New China Supplies to Diyu: done"
 		clear "New China Supplies to Diyu 2: done"
@@ -1056,17 +1044,7 @@ mission "Smuggler Exchange (Dirt Belt, Lolami)"
 		government "Bounty (Disguised)"
 		system "Lolami"
 		personality target waiting staying timid
-		fleet
-			names "pirate"
-			outfitters "Contraband"
-			variant
-				"Modified Clipper (Smuggler)"
-			variant
-				"Modified Argosy (Shields Smuggler)"
-			variant
-				"Modified Firebird (Smuggler)"
-			variant
-				"Modified Enforcer (Smuggler)"
+		fleet "Smugglers"
 	on abort
 		clear "New China Supplies to Diyu: done"
 		clear "New China Supplies to Diyu 2: done"
@@ -1121,17 +1099,7 @@ mission "Smuggler Exchange (Dirt Belt, Ipsing)"
 		government "Bounty (Disguised)"
 		system "Ipsing"
 		personality target waiting staying timid
-		fleet
-			names "pirate"
-			outfitters "Contraband"
-			variant
-				"Modified Clipper (Smuggler)"
-			variant
-				"Modified Argosy (Shields Smuggler)"
-			variant
-				"Modified Firebird (Smuggler)"
-			variant
-				"Modified Enforcer (Smuggler)"
+		fleet "Smugglers"
 	on abort
 		clear "New China Supplies to Diyu: done"
 		clear "New China Supplies to Diyu 2: done"
@@ -1251,17 +1219,7 @@ mission "Smuggler Exchange (Dirt Belt, Hintar)"
 		government "Bounty (Disguised)"
 		system "Hintar"
 		personality target waiting staying timid
-		fleet
-			names "pirate"
-			outfitters "Contraband"
-			variant
-				"Modified Clipper (Smuggler)"
-			variant
-				"Modified Argosy (Shields Smuggler)"
-			variant
-				"Modified Firebird (Smuggler)"
-			variant
-				"Modified Enforcer (Smuggler)"
+		fleet "Smugglers"
 	on abort
 		clear "New China Supplies to Diyu: done"
 		clear "New China Supplies to Diyu 2: done"
@@ -1316,17 +1274,7 @@ mission "Smuggler Exchange (Dirt Belt, Orvala)"
 		government "Bounty (Disguised)"
 		system "Orvala"
 		personality target waiting staying timid
-		fleet
-			names "pirate"
-			outfitters "Contraband"
-			variant
-				"Modified Clipper (Smuggler)"
-			variant
-				"Modified Argosy (Shields Smuggler)"
-			variant
-				"Modified Firebird (Smuggler)"
-			variant
-				"Modified Enforcer (Smuggler)"
+		fleet "Smugglers"
 	on abort
 		clear "New China Supplies to Diyu: done"
 		clear "New China Supplies to Diyu 2: done"
@@ -1381,17 +1329,7 @@ mission "Smuggler Exchange (Dirt Belt, Naper)"
 		government "Bounty (Disguised)"
 		system "Naper"
 		personality target waiting staying timid
-		fleet
-			names "pirate"
-			outfitters "Contraband"
-			variant
-				"Modified Clipper (Smuggler)"
-			variant
-				"Modified Argosy (Shields Smuggler)"
-			variant
-				"Modified Firebird (Smuggler)"
-			variant
-				"Modified Enforcer (Smuggler)"
+		fleet "Smugglers"
 	on abort
 		clear "New China Supplies to Diyu: done"
 		clear "New China Supplies to Diyu 2: done"
@@ -1748,7 +1686,8 @@ mission "Rum Cellar Wager"
 	minor
 	repeat
 	name "Fight! Fight! Fight!"
-	description "The <npc> is hunting you down and bets are being placed on whether you'll be able to defeat it. Place a 1,000,000 credit bet on yourself and collect at <destination> when you win."
+	description "The <npc> is hunting you down and bets are being placed on whether you'll be able to defeat it. Place a 1,000,000 credit bet on yourself. If you win, collect <payment> at <destination> when you win."
+	"apparent payment" 2000000
 	source "Rum Cellar"
 	to offer
 		"combat rating" > 1000
@@ -1779,41 +1718,53 @@ mission "Rum Cellar Wager"
 		personality target entering nemesis heroic
 		fleet
 			names "bounty hunter"
-			variant 3
+			variant 4
 				"Marauder Falcon (Shields)"
 				"Headhunter" 2
 				"Headhunter (Strike)" 2
-			variant 2
+			variant 3
 				"Marauder Falcon (Weapons)"
 				"Headhunter" 2
 				"Headhunter (Strike)" 2
-			variant 2
+			variant 3
 				"Marauder Falcon (Engines)"
 				"Headhunter" 2
 				"Headhunter (Strike)" 2
-			variant 3
+			variant 4
 				"Marauder Leviathan (Shields)"
 				"Headhunter" 2
 				"Headhunter (Strike)" 2
-			variant 2
+			variant 3
 				"Marauder Leviathan (Engines)"
 				"Headhunter" 2
 				"Headhunter (Strike)" 2
-			variant 2
+			variant 3
 				"Marauder Leviathan (Weapons)"
 				"Headhunter" 2
 				"Headhunter (Strike)" 2
-			variant 1
+			variant 2
 				"Marauder Vanguard"
 				"Headhunter (Particle)" 2
 				"Headhunter (Strike)" 2
-			variant 1
+			variant 2
 				"Marauder Protector"
 				"Headhunter (Particle)" 2
 				"Headhunter (Strike)" 2
-			variant 1
+			variant 2
 				"Marauder Behemoth"
 				"Dagger" 2
+				"Headhunter" 2
+				"Headhunter (Strike)" 2
+			variant 1
+				"Marauder Behemoth (Weapons)"
+				"Headhunter" 2
+				"Headhunter (Strike)" 2
+			variant 1
+				"Marauder Behemoth (Engines)"
+				"Headhunter" 2
+				"Headhunter (Strike)" 2
+			variant 1
+				"Marauder Frigate"
 				"Headhunter" 2
 				"Headhunter (Strike)" 2
 			variant 1
@@ -2603,7 +2554,7 @@ mission "Dirt Belt Assassination [3]"
 				"Frigate" 2
 			variant
 				"Carrier"
-				"Lance" 4
+				"Lance" 8
 				"Combat Drone" 6
 				"Gunboat" 2
 				"Rainmaker"
@@ -2726,17 +2677,7 @@ mission "Smuggler Exchange (Dirt Belt, Fingol)"
 		government "Bounty (Disguised)"
 		system "Fingol"
 		personality target waiting staying timid
-		fleet
-			names "pirate"
-			outfitters "Contraband"
-			variant
-				"Modified Clipper (Smuggler)"
-			variant
-				"Modified Argosy (Shields Smuggler)"
-			variant
-				"Modified Firebird (Smuggler)"
-			variant
-				"Modified Enforcer (Smuggler)"
+		fleet "Smugglers"
 	on abort
 		clear "New China Supplies to Diyu: done"
 		clear "New China Supplies to Diyu 2: done"
@@ -2791,17 +2732,7 @@ mission "Smuggler Exchange (Dirt Belt, Nocte)"
 		government "Bounty (Disguised)"
 		system "Nocte"
 		personality target waiting staying timid
-		fleet
-			names "pirate"
-			outfitters "Contraband"
-			variant
-				"Modified Clipper (Smuggler)"
-			variant
-				"Modified Argosy (Shields Smuggler)"
-			variant
-				"Modified Firebird (Smuggler)"
-			variant
-				"Modified Enforcer (Smuggler)"
+		fleet "Smugglers"
 	on abort
 		clear "New China Supplies to Diyu: done"
 		clear "New China Supplies to Diyu 2: done"
@@ -2856,17 +2787,7 @@ mission "Smuggler Exchange (Dirt Belt, Umbral)"
 		government "Bounty (Disguised)"
 		system "Umbral"
 		personality target waiting staying timid
-		fleet
-			names "pirate"
-			outfitters "Contraband"
-			variant
-				"Modified Clipper (Smuggler)"
-			variant
-				"Modified Argosy (Shields Smuggler)"
-			variant
-				"Modified Firebird (Smuggler)"
-			variant
-				"Modified Enforcer (Smuggler)"
+		fleet "Smugglers"
 	on abort
 		clear "New China Supplies to Diyu: done"
 		clear "New China Supplies to Diyu 2: done"
@@ -2921,17 +2842,7 @@ mission "Smuggler Exchange (Dirt Belt, Sadr)"
 		government "Bounty (Disguised)"
 		system "Sadr"
 		personality target waiting staying timid
-		fleet
-			names "pirate"
-			outfitters "Contraband"
-			variant
-				"Modified Clipper (Smuggler)"
-			variant
-				"Modified Argosy (Shields Smuggler)"
-			variant
-				"Modified Firebird (Smuggler)"
-			variant
-				"Modified Enforcer (Smuggler)"
+		fleet "Smugglers"
 	on abort
 		clear "New China Supplies to Diyu: done"
 		clear "New China Supplies to Diyu 2: done"
